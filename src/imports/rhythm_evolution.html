@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rhythm — Product Evolution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAF7F2;
+    --warm-brown: #8B6A3E;
+    --warm-brown-light: #F5EDE0;
+    --warm-brown-dark: #7A4F1E;
+    --green-light: #E8F0E6;
+    --green-dark: #2C5C2A;
+    --text-primary: #1A1A18;
+    --text-secondary: #4A4845;
+    --text-tertiary: #8A8780;
+    --border: rgba(0,0,0,0.10);
+    --border-soft: rgba(0,0,0,0.06);
+    --bg-secondary: #F3EFE8;
+    --bg-primary: #FFFFFF;
+  }
+
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-brown);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.22;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+  }
+
+  .section-reframe {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-style: italic;
+    max-width: 620px;
+    margin-bottom: 28px;
+    padding-left: 16px;
+    border-left: 2px solid var(--warm-brown);
+  }
+
+  .phase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .phase-grid { grid-template-columns: 1fr; }
+    .wrap { padding: 40px 20px 60px; }
+  }
+
+  .phase-card {
+    background: var(--bg-secondary);
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    padding: 26px;
+  }
+
+  .phase-card.active {
+    background: var(--bg-primary);
+  }
+
+  .phase-pill {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+
+  .phase-pill.p1 { background: var(--warm-brown-light); color: var(--warm-brown-dark); }
+  .phase-pill.p2 { background: var(--green-light); color: var(--green-dark); }
+
+  .phase-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+  }
+
+  .phase-tagline {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    font-style: italic;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .what-built {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+  }
+
+  .detail-block {
+    border-top: 0.5px solid var(--border-soft);
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .detail-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+  }
+
+  .detail-item ul { list-style: none; padding: 0; margin: 0; }
+
+  .detail-item ul li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .detail-item ul li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: var(--text-tertiary);
+  }
+
+  .next-block {
+    background: #E6F1FB;
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+
+  .next-block .detail-label { color: #185FA5; margin-bottom: 4px; }
+  .next-block p { font-size: 13px; color: #185FA5; line-height: 1.65; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="section-label">Product Evolution</p>
+  <h2 class="section-title">Two semesters, two fundamentally different systems</h2>
+  <p class="section-reframe">The fall semester forced a fundamental reframe: the user isn't "burnt out" — their physiological capacity and behavioral workload are simply misaligned. Everything was rebuilt around that insight.</p>
+
+  <div class="phase-grid">
+
+    <div class="phase-card">
+      <span class="phase-pill p1">Fall 2025</span>
+      <h3>Mindful Productivity Dashboard</h3>
+      <p class="phase-tagline">If you could see your habits, you'd make better choices.</p>
+      <p class="what-built">Streamlit dashboard — users logged screen time, sleep, and productivity score daily. k-means clustering mapped inputs to a Rhythm State, Gemini returned a personalized non-digital microbreak.</p>
+      <div class="detail-block">
+        <div class="detail-item">
+          <div class="detail-label">Key finding</div>
+          <ul>
+            <li>Screen time was the single overwhelming predictor of productivity decline — more than sleep, exercise, or stress combined</li>
+            <li>Justified building interventions around non-digital breaks</li>
+          </ul>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">What didn't work</div>
+          <ul>
+            <li>Manual logging felt passive — insights arrived too late to be actionable</li>
+            <li>Gemini misread prompts as medical advice, requiring neutral cluster names and multiple rounds of prompt tuning</li>
+            <li>Streamlit overrode CSS constantly, making it hard to match the Figma designs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card active">
+      <span class="phase-pill p2">Spring 2026</span>
+      <h3>Rhythm as a System</h3>
+      <p class="phase-tagline">Stop asking users how they feel. Detect it.</p>
+      <p class="what-built">FastAPI backend pulling Oura Ring biometrics and Google Calendar data. React + TypeScript dashboard for pattern analysis, plus an Electron menu bar mini-app for real-time ambient nudges.</p>
+      <div class="detail-block">
+        <div class="detail-item">
+          <div class="detail-label">Key shifts</div>
+          <ul>
+            <li>Self-reported inputs → passive biometric detection via Oura + Calendar APIs</li>
+            <li>Five subjective clusters → four threshold-based states grounded in real physiology</li>
+            <li>Single dashboard → two-surface system: full analysis view + ambient menu bar app</li>
+            <li>Streamlit → React + TypeScript + FastAPI, removing all prior UX constraints</li>
+          </ul>
+        </div>
+        <div class="detail-item next-block">
+          <div class="detail-label">What's next</div>
+          <p>A physical home base — Arduino-powered ambient lamp with an OLED display. State shown through color and pulse, with a contextual nudge on screen so the user always has a path forward, not just a warning.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* ========================================
+     PORTFOLIO COLOR PALETTE
+     ======================================== */
+  --color-off-white: #FCFCFC;       /* Page bg, card bg */
+  --color-linen: #EDE8E0;           /* Borders, dividers, surfaces */
+  --color-tan: #B88C6F;             /* Subtext on dark, accents, stats */
+  --color-brown: #6C382A;           /* Hero card bg, section labels */
+  --color-maroon: #5D1F1F;          /* Name highlight, CTA block, links */
+  --color-warm-grey: #6B5B4E;       /* Body copy, nav links */
+  --color-ink: #1A1A1A;             /* Headlines, primary buttons */
+  
+  /* Legacy color names for compatibility */
+  --color-brown-primary: #6C382A;
+  --color-tan-accent: #B88C6F;
+  --color-gray-text: #6B5B4E;
+  --color-white: #FCFCFC;
+  --color-black: #1A1A1A;
+  --color-light-bg: #EDE8E0;
+  
+  /* ========================================
+     TYPOGRAPHY SYSTEM
+     Easy to customize font sizes and weights
+     ======================================== */
+  
+  /* Font Sizes */
+  --font-size-display: 3.5rem;      /* 56px - Hero headings */
+  --font-size-h1: 2.5rem;           /* 40px - Main headings */
+  --font-size-h2: 2rem;             /* 32px - Section headings */
+  --font-size-h3: 1.5rem;           /* 24px - Subsection headings */
+  --font-size-h4: 1.25rem;          /* 20px - Small headings */
+  --font-size-body-large: 1.125rem; /* 18px - Large body text */
+  --font-size-body: 1rem;           /* 16px - Default body text */
+  --font-size-small: 0.875rem;      /* 14px - Small text, tags */
+  --font-size-tiny: 0.75rem;        /* 12px - Captions, labels */
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+  
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  
+  /* Standard theme variables */
+  --font-size: 16px;
+  --background: var(--color-white);
+  --foreground: var(--color-black);
+  --card: var(--color-white);
+  --card-foreground: var(--color-black);
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-black);
+  --primary: var(--color-brown-primary);
+  --primary-foreground: var(--color-white);
+  --secondary: var(--color-tan-accent);
+  --secondary-foreground: var(--color-black);
+  --muted: var(--color-light-bg);
+  --muted-foreground: var(--color-gray-text);
+  --accent: var(--color-tan-accent);
+  --accent-foreground: var(--color-black);
+  --destructive: #dc2626;
+  --destructive-foreground: var(--color-white);
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --ring: var(--color-brown-primary);
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+/* ========================================
+   CUSTOM TYPOGRAPHY CLASSES
+   Use these for consistent styling
+   ======================================== */
+
+/* Display - For hero sections */
+.text-display {
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-black);
+}
+
+/* Headings */
+.text-heading-1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-black);
+}
+
+.text-heading-2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  color: var(--color-black);
+}
+
+.text-heading-3 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  color: var(--color-black);
+}
+
+.text-heading-4 {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--color-black);
+}
+
+/* Body Text */
+.text-body-large {
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-gray-text);
+}
+
+.text-body {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-gray-text);
+}
+
+.text-body-small {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-gray-text);
+}
+
+/* Specialty Text */
+.text-caption {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--color-gray-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.text-label {
+  font-size: var(--font-size-tiny);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  color: var(--color-gray-text);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/**
+ * Base typography defaults. This is applied to basic HTML elements.
+ * You can override these by using the custom classes above.
+ */
+@layer base {
+  :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
+    h1 {
+      font-size: var(--font-size-h1);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--line-height-tight);
+      color: var(--color-black);
+    }
+
+    h2 {
+      font-size: var(--font-size-h2);
+      font-weight: var(--font-weight-semibold);
+      line-height: var(--line-height-normal);
+      color: var(--color-black);
+    }
+
+    h3 {
+      font-size: var(--font-size-h3);
+      font-weight: var(--font-weight-semibold);
+      line-height: var(--line-height-normal);
+      color: var(--color-black);
+    }
+
+    h4 {
+      font-size: var(--font-size-h4);
+      font-weight: var(--font-weight-medium);
+      line-height: var(--line-height-normal);
+      color: var(--color-black);
+    }
+
+    p {
+      font-size: var(--font-size-body);
+      font-weight: var(--font-weight-regular);
+      line-height: var(--line-height-normal);
+      color: var(--color-gray-text);
+    }
+
+    label {
+      font-size: var(--font-size-body);
+      font-weight: var(--font-weight-medium);
+      line-height: var(--line-height-normal);
+    }
+
+    button {
+      font-size: var(--font-size-body);
+      font-weight: var(--font-weight-medium);
+      line-height: var(--line-height-normal);
+    }
+
+    input {
+      font-size: var(--font-size-body);
+      font-weight: var(--font-weight-regular);
+      line-height: var(--line-height-normal);
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
