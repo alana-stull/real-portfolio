@@ -168,7 +168,7 @@ export function About() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="/path-to-resume.pdf"
+                href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl transition-all duration-300 hover:bg-opacity-90 group"

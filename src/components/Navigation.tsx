@@ -12,7 +12,7 @@ export function Navigation() {
   const navLinks = [
     { path: '/', label: 'HOME' },
     { path: '/about', label: 'ABOUT' },
-    { path: '/path-to-resume.pdf', label: 'RESUME', external: true },
+    { path: '/resume.pdf', label: 'RESUME', external: true },
   ];
 
   return (
