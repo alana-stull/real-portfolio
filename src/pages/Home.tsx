@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronRight, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import MentorMeImage from "../imports/Group33987";
@@ -9,9 +10,11 @@ import RhythmImageStatic from "figma:asset/ea41269c606125350e08adaa0b350dd2e791a
 import ClarityAssistImage from "figma:asset/33f3027060c6f4bca0459accb8f98b430d8f9f34.png";
 import AmazonLearnImage from "figma:asset/2a7240ae2d20598003ea0a91aa16a212bbaaf224.png";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import crwnImage from "../assets/crwn-image.png";
 
 export function Home() {
   const [currentCard, setCurrentCard] = useState(0);
+  const [showCrwnOverlay, setShowCrwnOverlay] = useState(false);
 
   const expertiseCards = [
     {
@@ -88,9 +91,9 @@ export function Home() {
       role: "Contract UX Engineer",
       category: "NATURAL HAIRCARE",
       tags: ["Brand Design", "Product Design", "Frontend Development"],
-      image:
-        "https://images.unsplash.com/photo-1664099160144-f6991681878d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuYXR1cmFsJTIwaGFpciUyMGNhcmUlMjBwcm9kdWN0cyUyMGN1cmx5JTIwaGFpcnxlbnwxfHx8fDE3NzM2NzUyMzV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      imageType: "url",
+      image: crwnImage,
+      imageType: "static",
+      wip: true,
     },
   ];
 
@@ -361,12 +364,21 @@ export function Home() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="h-full"
             >
-              <Link
-                to={`/case-studies/${project.id}`}
-                className="group block h-full"
-              >
-                <ProjectCard project={project} index={index} />
-              </Link>
+              {project.wip ? (
+                <button
+                  onClick={() => setShowCrwnOverlay(true)}
+                  className="group block h-full w-full text-left"
+                >
+                  <ProjectCard project={project} index={index} />
+                </button>
+              ) : (
+                <Link
+                  to={`/case-studies/${project.id}`}
+                  className="group block h-full"
+                >
+                  <ProjectCard project={project} index={index} />
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>
@@ -431,6 +443,67 @@ export function Home() {
           ))}
         </div>
       </section>
+
+      {/* CRWN WIP Overlay */}
+      <AnimatePresence>
+        {showCrwnOverlay && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-6"
+            style={{ backgroundColor: "rgba(0,0,0,0.6)", backdropFilter: "blur(6px)" }}
+            onClick={() => setShowCrwnOverlay(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 16 }}
+              transition={{ duration: 0.25 }}
+              className="relative bg-white rounded-3xl p-10 max-w-md w-full text-center"
+              style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.2)" }}
+              onClick={(e: React.MouseEvent) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setShowCrwnOverlay(false)}
+                className="absolute top-5 right-5 w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:bg-gray-100"
+                style={{ color: "var(--color-warm-grey)" }}
+              >
+                <X size={18} />
+              </button>
+
+              <div
+                className="inline-block px-4 py-1.5 rounded-full mb-6"
+                style={{ backgroundColor: "var(--color-linen)", fontSize: "12px", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.08em", color: "var(--color-brown)", textTransform: "uppercase" }}
+              >
+                Work in Progress
+              </div>
+
+              <h3
+                style={{ fontSize: "1.75rem", fontWeight: "var(--font-weight-bold)", color: "var(--color-ink)", marginBottom: "0.75rem" }}
+              >
+                Case study in progress...
+              </h3>
+
+              <p style={{ color: "var(--color-warm-grey)", lineHeight: "1.6", marginBottom: "2rem" }}>
+                This case study is still being written. In the meantime, check out the prototype below.
+              </p>
+
+              <a
+                href="https://quilt-thick-86776898.figma.site/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl transition-all duration-300 hover:shadow-lg group"
+                style={{ backgroundColor: "var(--color-maroon)", color: "white", fontWeight: "var(--font-weight-medium)" }}
+              >
+                <span>View Prototype</span>
+                <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* CTA Section */}
       <section className="max-w-7xl mx-auto px-6 py-20 mb-20">
