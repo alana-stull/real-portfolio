@@ -1,5 +1,5 @@
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import profileImage from 'figma:asset/ec07d733eb726b699d85e6736336f9c950192cd0.png';
+import profileImage from '../assets/headshot.JPG';
 import { ArrowUpRight } from 'lucide-react';
 
 export function About() {
@@ -60,7 +60,8 @@ export function About() {
             <ImageWithFallback
               src={profileImage}
               alt="Alana Stull"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: '95% 50%' }}
             />
           </div>
         </div>
