@@ -454,7 +454,7 @@ export function Rhythm() {
             marginBottom: "1rem",
           }}
         >
-          Phase 1 — Fall 2025: Research & Analysis
+          Phase 1, Fall 2025: Research & Analysis
         </p>
         <h2
           style={{
@@ -579,7 +579,7 @@ export function Rhythm() {
             marginBottom: "1rem",
           }}
         >
-          Phase 1 — Fall 2025: UX Design
+          Phase 1, Fall 2025: UX Design
         </p>
         <h2
           style={{
@@ -837,7 +837,7 @@ export function Rhythm() {
             marginBottom: "1rem",
           }}
         >
-          Phase 1 — Fall 2025
+          Phase 1, Fall 2025
         </p>
         <h2
           style={{
@@ -930,7 +930,7 @@ export function Rhythm() {
             marginBottom: "1rem",
           }}
         >
-          Phase 2 — Spring 2026
+          Phase 2, Spring 2026
         </p>
         <h2
           style={{
@@ -951,7 +951,7 @@ export function Rhythm() {
             marginBottom: "1.75rem",
           }}
         >
-          Instead of self-reporting, the system now reads two indices in real time. The gap between them is what Rhythm calls misalignment — the actual cause of productivity crashes.
+          Instead of self-reporting, the system now reads two indices in real time. The gap between them is what Rhythm calls misalignment: the actual cause of productivity crashes.
         </p>
 
         {/* Formula Block */}
@@ -1109,29 +1109,29 @@ export function Rhythm() {
             marginBottom: "1.25rem",
           }}
         >
-          The four updated Rhythm States are threshold-based — not clustered. Cleaner, more actionable, easier to intervene on.
+          The four updated Rhythm States are threshold-based, not clustered. Cleaner, more actionable, easier to intervene on.
         </p>
 
         <div className="grid md:grid-cols-2 gap-3">
           <StateCard
             color="#5BAD72"
             title="Aligned"
-            description="Recovery ≥ 80, Exposure ≤ 50 — ideal for deep work"
+            description="Recovery ≥ 80, Exposure ≤ 50: ideal for deep work"
           />
           <StateCard
             color="#4A90D9"
             title="Balanced"
-            description="Recovery ≥ 60, moderate exposure — sustainable pace"
+            description="Recovery ≥ 60, moderate exposure: sustainable pace"
           />
           <StateCard
             color="#E8A838"
             title="Strained"
-            description="Recovery < 60, any load — body needs protecting"
+            description="Recovery < 60, any load: body needs protecting"
           />
           <StateCard
             color="#C0392B"
             title="Overloaded"
-            description="Recovery < 75, Exposure ≥ 70 — fatigue accumulating"
+            description="Recovery < 75, Exposure ≥ 70: fatigue accumulating"
           />
         </div>
       </section>
@@ -1169,7 +1169,7 @@ export function Rhythm() {
             marginBottom: "1.75rem",
           }}
         >
-          The system syncs once per day to seed the dashboard, then the Electron mini-app surfaces state in real time — 12 seconds average interaction, zero interruption to workflow.
+          The system syncs once per day to seed the dashboard, then the Electron mini-app surfaces state in real time: 12 seconds average interaction, zero interruption to workflow.
         </p>
 
         <div className="grid md:grid-cols-3 gap-4 mb-6">
@@ -1289,7 +1289,7 @@ export function Rhythm() {
             color: "var(--color-warm-grey)",
           }}
         >
-          The LLM prompt positions Rhythm as a calm, supportive wellness assistant — like a trusted advisor who never overreacts. Tone was as important as accuracy. Neutral state names and careful framing were key iteration points from user testing.
+          The LLM prompt positions Rhythm as a calm, supportive wellness assistant, like a trusted advisor who never overreacts. Tone was as important as accuracy. Neutral state names and careful framing were key iteration points from user testing.
         </p>
       </section>
 
@@ -1353,7 +1353,7 @@ export function Rhythm() {
                 lineHeight: "1.72",
               }}
             >
-              Screen time's dominance in the decision tree wasn't just a finding — it was the justification for the entire intervention strategy. Good analysis changes what you build.
+              Screen time's dominance in the decision tree wasn't just a finding: it was the justification for the entire intervention strategy. Good analysis changes what you build.
             </p>
           </div>
 
@@ -1419,7 +1419,7 @@ export function Rhythm() {
                 lineHeight: "1.72",
               }}
             >
-              Every friction point in data collection kills long-term engagement. The 340% lift wasn't from better insights — it was from removing the ask entirely.
+              Every friction point in data collection kills long-term engagement. The 340% lift wasn't from better insights: it was from removing the ask entirely.
             </p>
           </div>
         </div>
@@ -1454,7 +1454,7 @@ export function Rhythm() {
               lineHeight: "1.65",
             }}
           >
-            A physical mini-display with LED or audio signal that communicates Rhythm State without adding any screen time at all — ambient awareness beyond the screen.
+            A physical mini-display with LED or audio signal that communicates Rhythm State without adding any screen time at all: ambient awareness beyond the screen.
           </p>
         </div>
       </section>

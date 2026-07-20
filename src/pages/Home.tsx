@@ -1,26 +1,23 @@
-import React from "react";
 import { Link } from "react-router";
-import { ArrowUpRight, ChevronRight, X } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { ArrowUpRight, ChevronRight } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
-import MentorMeImage from "../imports/Group33987";
-import NotedByNaniImage from "../imports/Group33988";
 import BlyssImageStatic from "figma:asset/a599320fb284b50fd85c5467705d2e1467d43acb.png";
 import RhythmImageStatic from "figma:asset/ea41269c606125350e08adaa0b350dd2e791ab23.png";
 import ClarityAssistImage from "figma:asset/33f3027060c6f4bca0459accb8f98b430d8f9f34.png";
-import AmazonLearnImage from "figma:asset/2a7240ae2d20598003ea0a91aa16a212bbaaf224.png";
-import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import crwnImage from "../assets/crwn-image.png";
+import {
+  FeaturedProjectCarousel,
+  type FeaturedProject,
+} from "../components/FeaturedProjectCarousel";
 
 export function Home() {
   const [currentCard, setCurrentCard] = useState(0);
-  const [showCrwnOverlay, setShowCrwnOverlay] = useState(false);
 
   const expertiseCards = [
     {
       title: "Design",
       description:
-        "Skilled product designer experienced in design thinking, product development, and usability testing—crafting intuitive, human-centered experiences.",
+        "Skilled product designer experienced in design thinking, product development, and usability testing, crafting intuitive, human-centered experiences.",
     },
     {
       title: "Development",
@@ -30,7 +27,7 @@ export function Home() {
     {
       title: "AI & Emerging Tech",
       description:
-        "Exploring how AI can enhance digital experiences—designing intelligent systems that make products more adaptive, useful, and intuitive.",
+        "Exploring how AI can enhance digital experiences, designing intelligent systems that make products more adaptive, useful, and intuitive.",
     },
     {
       title: "Strategy",
@@ -48,112 +45,90 @@ export function Home() {
     setCurrentCard((prev) => (prev + 1) % expertiseCards.length);
   };
 
-  const prevCard = () => {
-    setCurrentCard((prev) => (prev - 1 + expertiseCards.length) % expertiseCards.length);
-  };
-
-  const personalProjects = [
+  const featuredProjects: FeaturedProject[] = [
     {
       id: "blyss",
       title: "Blyss Social",
-      description:
-        "Leading product pivot for social discovery platform with AI-powered venue recommendations and event coordination",
-      role: "Co-Founder, Chief of Design & Development",
       category: "SOCIAL DISCOVERY",
-      tags: [
-        "End-to-End Product Development",
-        "Design Strategy",
-        "Startup",
-      ],
       image: BlyssImageStatic,
-      imageType: "static",
+      accentColor: "var(--color-maroon)",
+      ctaLabel: "View case study",
+      accordion: [
+        {
+          title: "The Pivot",
+          description:
+            "Killed the original dating app concept for something people actually needed.",
+        },
+        {
+          title: "End to End",
+          description:
+            "Every screen, every line of code, mine from Figma to shipped product.",
+        },
+        {
+          title: "App Store Push",
+          description:
+            "Currently learning Swift to take Blyss fully native.",
+        },
+      ],
     },
     {
       id: "rhythm",
       title: "Rhythm",
-      description:
-        "AI-driven wellness tool integrating behavioral, physiological, and calendar data into personalized insights",
-      role: "Founder, UX Engineer",
       category: "PERSONAL WELLNESS",
-      tags: [
-        "AI Systems",
-        "Data-Driven Design",
-        "Fullstack Development",
-      ],
       image: RhythmImageStatic,
-      imageType: "static",
+      accentColor: "var(--color-tan)",
+      ctaLabel: "View case study",
+      accordion: [
+        {
+          title: "The Problem",
+          description:
+            "Wellness apps track data but rarely turn it into action.",
+        },
+        {
+          title: "The Build",
+          description:
+            "A web dashboard and Electron app pulling from Oura and Google Calendar in real time.",
+        },
+        {
+          title: "What's Next",
+          description:
+            "Layering in LLM-powered microbreak prompts as the product matures.",
+        },
+      ],
     },
-    {
-      id: "crwn",
-      title: "CRWN",
-      description:
-        "Community-driven marketplace connecting young Black adults to stylists, inspiration, and trusted hair guidance",
-      role: "Contract UX Engineer",
-      category: "NATURAL HAIRCARE",
-      tags: ["Brand Design", "Product Design", "Frontend Development"],
-      image: crwnImage,
-      imageType: "static",
-      wip: true,
-    },
-  ];
-
-  const professionalProjects = [
     {
       id: "clarity-assist",
       title: "Clarity Assist",
-      description:
-        "Designed and conducted usability tests for generative AI/LLM platform hosting 1.4k+ people metrics and 175k+ customized reports.",
-      role: "UX Design Intern",
       category: "AMAZON INTERNSHIP",
-      tags: [
-        "Generative AI",
-        "Conversation Design",
-        "Data-Driven Design",
-      ],
+      image: ClarityAssistImage,
+      accentColor: "var(--color-brown)",
+      ctaLabel: "View prototype",
       externalLink:
         "https://www.figma.com/proto/fNmvcmDOMWIOM3WsYTqcDk/final-internship-presentation?page-id=0%3A1&node-id=1-12764&scaling=scale-down&content-scaling=fixed&t=QMY6bv2ctEgOflMs-1",
-      image: ClarityAssistImage,
-      imageType: "static",
-    },
-    {
-      id: "amazon-learn",
-      title: "Amazon Learn",
-      description:
-        "Developed UI components for a career management platform used by 3M+ users, contributing to Amazon’s internal design system.",
-      role: "UX Design Intern",
-      category: "AMAZON INTERNSHIP",
-      tags: ["Edtech", "Product Design", "Enterprise UX"],
-      externalLink:
-        "https://www.figma.com/proto/3mRKne0c0SZYgb92S28miA/all-presentations?page-id=0%3A1&node-id=0-2029&starting-point-node-id=0%3A2029&scaling=scale-down&content-scaling=fixed&t=Dr5c2C1eCFC6CWZe-1",
-      image: AmazonLearnImage,
-      imageType: "static",
-    },
-    {
-      id: "mentor-me-collective",
-      title: "Mentor Me Collective",
-      description:
-        "Led full brand redesign and content strategy, growing a multi-platform community reaching 40k+ students and professionals.",
-      role: "Content Designer",
-      category: "SOCIAL IMPACT",
-      tags: [
-        "Brand Strategy",
-        "Product Leader",
-        "Social Impact",
+      ndaNote: "Some specifics are limited due to NDA.",
+      accordion: [
+        {
+          title: "Two Users, One Tool",
+          description:
+            "Same AI system, built differently for corporate managers and hourly team leads.",
+        },
+        {
+          title: "Access as Strategy",
+          description:
+            "The real design problem wasn't the interface, it was who gets to see what.",
+        },
+        {
+          title: "The Impact",
+          description: "Why the split-access model mattered.",
+        },
       ],
-      image: MentorMeImage,
-      imageType: "component",
     },
-  ];
-
-  const allProjects = [
-    ...personalProjects,
-    ...professionalProjects,
   ];
 
   return (
     <div style={{ backgroundColor: "var(--color-off-white)" }}>
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 pt-32 pb-24">
+      <section className="max-w-7xl mx-auto px-6 pt-12 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Content */}
           <div className="max-w-5xl ml-0 lg:ml-12">
@@ -267,10 +242,11 @@ export function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="absolute inset-0 bg-white rounded-2xl p-8 flex flex-col shadow-xl"
+                  className="absolute inset-0 bg-white rounded-2xl p-8 flex flex-col"
                   style={{
                     border: "1px solid var(--color-linen)",
                     transform: "rotate(3deg)",
+                    boxShadow: "0 32px 70px rgba(0, 0, 0, 0.12)",
                   }}
                 >
                   {/* Card Number */}
@@ -329,12 +305,12 @@ export function Home() {
         </div>
       </section>
 
-      {/* Personal Ventures Section */}
+      {/* Featured Work Section */}
       <section
         id="work"
-        className="max-w-7xl mx-auto px-6 py-20"
+        className="max-w-7xl mx-auto px-6 py-8 md:py-10"
       >
-        <div className="flex items-center justify-between mb-12">
+        <div className="flex items-center justify-between mb-4">
           <h2
             style={{
               fontSize: "1.5rem",
@@ -342,171 +318,31 @@ export function Home() {
               color: "var(--color-maroon)",
             }}
           >
-            PERSONAL VENTURES
+            FEATURED WORK
           </h2>
-          <span
+
+          <Link
+            to="/work"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl transition-all duration-300 hover:shadow-lg group"
             style={{
-              fontSize: "14px",
-              color: "var(--color-warm-grey)",
+              backgroundColor: "var(--color-linen)",
+              color: "var(--color-ink)",
+              fontWeight: "var(--font-weight-medium)",
             }}
           >
-            0{personalProjects.length} Projects
-          </span>
+            <span>See all work</span>
+            <ArrowUpRight
+              size={18}
+              className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+            />
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-          {personalProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="h-full"
-            >
-              {project.wip ? (
-                <button
-                  onClick={() => setShowCrwnOverlay(true)}
-                  className="group block h-full w-full text-left"
-                >
-                  <ProjectCard project={project} index={index} />
-                </button>
-              ) : (
-                <Link
-                  to={`/case-studies/${project.id}`}
-                  className="group block h-full"
-                >
-                  <ProjectCard project={project} index={index} />
-                </Link>
-              )}
-            </motion.div>
-          ))}
-        </div>
+        <FeaturedProjectCarousel projects={featuredProjects} />
       </section>
-
-      {/* Professional Experience Section */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="flex items-center justify-between mb-12">
-          <h2
-            style={{
-              fontSize: "1.5rem",
-              fontWeight: "var(--font-weight-bold)",
-              color: "var(--color-maroon)",
-            }}
-          >
-            PROFESSIONAL EXPERIENCE
-          </h2>
-          <span
-            style={{
-              fontSize: "14px",
-              color: "var(--color-warm-grey)",
-            }}
-          >
-            0{professionalProjects.length} Projects
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-          {professionalProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="h-full"
-            >
-              {project.externalLink ? (
-                <a
-                  href={project.externalLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block h-full"
-                >
-                  <ProjectCard
-                    project={project}
-                    index={index}
-                  />
-                </a>
-              ) : (
-                <Link
-                  to={`/case-studies/${project.id}`}
-                  className="group block h-full"
-                >
-                  <ProjectCard
-                    project={project}
-                    index={index}
-                  />
-                </Link>
-              )}
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* CRWN WIP Overlay */}
-      <AnimatePresence>
-        {showCrwnOverlay && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-6"
-            style={{ backgroundColor: "rgba(0,0,0,0.6)", backdropFilter: "blur(6px)" }}
-            onClick={() => setShowCrwnOverlay(false)}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 16 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 16 }}
-              transition={{ duration: 0.25 }}
-              className="relative bg-white rounded-3xl p-10 max-w-md w-full text-center"
-              style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.2)" }}
-              onClick={(e: React.MouseEvent) => e.stopPropagation()}
-            >
-              <button
-                onClick={() => setShowCrwnOverlay(false)}
-                className="absolute top-5 right-5 w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:bg-gray-100"
-                style={{ color: "var(--color-warm-grey)" }}
-              >
-                <X size={18} />
-              </button>
-
-              <div
-                className="inline-block px-4 py-1.5 rounded-full mb-6"
-                style={{ backgroundColor: "var(--color-linen)", fontSize: "12px", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.08em", color: "var(--color-brown)", textTransform: "uppercase" }}
-              >
-                Work in Progress
-              </div>
-
-              <h3
-                style={{ fontSize: "1.75rem", fontWeight: "var(--font-weight-bold)", color: "var(--color-ink)", marginBottom: "0.75rem" }}
-              >
-                Case study in progress...
-              </h3>
-
-              <p style={{ color: "var(--color-warm-grey)", lineHeight: "1.6", marginBottom: "2rem" }}>
-                This case study is still being written. In the meantime, check out the prototype below.
-              </p>
-
-              <a
-                href="https://quilt-thick-86776898.figma.site/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl transition-all duration-300 hover:shadow-lg group"
-                style={{ backgroundColor: "var(--color-maroon)", color: "white", fontWeight: "var(--font-weight-medium)" }}
-              >
-                <span>View Prototype</span>
-                <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* CTA Section */}
-      <section className="max-w-7xl mx-auto px-6 py-20 mb-20">
+      <section className="max-w-7xl mx-auto px-6 pt-20 pb-6">
         <div
           className="rounded-3xl p-12 md:p-16 relative overflow-hidden"
           style={{
@@ -583,148 +419,5 @@ export function Home() {
         </div>
       </section>
     </div>
-  );
-}
-
-function ProjectCard({
-  project,
-  index,
-}: {
-  project: any;
-  index: number;
-}) {
-  return (
-    <motion.div
-      className="relative h-full"
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-    >
-      <div
-        className="bg-white rounded-2xl overflow-hidden transition-all duration-300 group-hover:shadow-2xl h-full flex flex-col"
-        style={{
-          boxShadow: "0 4px 16px rgba(0, 0, 0, 0.1)",
-        }}
-      >
-        {/* Image */}
-        <div
-          className="aspect-[4/3] bg-white flex items-center justify-center p-8 overflow-hidden relative"
-          style={{ backgroundColor: "var(--color-off-white)" }}
-        >
-          {project.imageType === "static" ? (
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-            />
-          ) : project.id === "noted-by-nani" ? (
-            <div className="w-[450px] h-[450px] relative scale-[0.72] transition-transform duration-500 group-hover:scale-[0.76]">
-              <NotedByNaniImage />
-            </div>
-          ) : project.id === "mentor-me-collective" ? (
-            <div className="w-[450px] h-[450px] relative scale-[0.65] transition-transform duration-500 group-hover:scale-[0.68]">
-              <MentorMeImage />
-            </div>
-          ) : project.imageType === "url" ? (
-            <ImageWithFallback
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-            />
-          ) : null}
-
-          {/* Number Badge */}
-          <div
-            className="absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center"
-            style={{
-              backgroundColor: "white",
-              border: "1px solid var(--color-linen)",
-              fontSize: "14px",
-              fontWeight: "var(--font-weight-semibold)",
-              color: "var(--color-warm-grey)",
-            }}
-          >
-            {String(index + 1).padStart(2, "0")}
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="p-8 flex-1 flex flex-col">
-          {/* Category */}
-          <p
-            style={{
-              fontSize: "12px",
-              fontWeight: "var(--font-weight-semibold)",
-              letterSpacing: "0.1em",
-              color: "var(--color-brown)",
-              textTransform: "uppercase",
-              marginBottom: "0.5rem",
-            }}
-          >
-            {project.category}
-          </p>
-
-          {/* Title */}
-          <h3
-            style={{
-              fontSize: "1.5rem",
-              fontWeight: "var(--font-weight-semibold)",
-              color: "var(--color-ink)",
-              marginBottom: "0.75rem",
-            }}
-          >
-            {project.title}
-          </h3>
-
-          {/* Description */}
-          <p
-            style={{
-              fontSize: "var(--font-size-body)",
-              color: "#5B5B5B",
-              lineHeight: "1.6",
-              marginBottom: "auto",
-            }}
-          >
-            {project.description}
-          </p>
-
-          {/* Divider and bottom section */}
-          <div
-            className="flex items-center justify-between pt-6 mt-6"
-            style={{
-              borderTop: "1px solid var(--color-linen)",
-            }}
-          >
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 flex-1">
-              {project.tags.map((tag: string) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1.5 rounded-md"
-                  style={{
-                    backgroundColor: "#F5F5F5",
-                    color: "#5B5B5B",
-                    fontSize: "13px",
-                    fontWeight: "var(--font-weight-medium)",
-                  }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            {/* Arrow Button */}
-            <div
-              className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ml-4 transition-all duration-300 group-hover:!bg-[var(--color-maroon)]"
-              style={{
-                backgroundColor: "var(--color-linen)",
-                color: "var(--color-brown)",
-              }}
-            >
-              <ArrowUpRight size={18} className="transition-colors duration-300 group-hover:!text-[var(--color-linen)]" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </motion.div>
   );
 }

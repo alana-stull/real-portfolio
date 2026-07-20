@@ -285,3 +285,7 @@ html {
     transform: translateY(-10px);
   }
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

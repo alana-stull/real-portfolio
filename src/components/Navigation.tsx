@@ -11,6 +11,7 @@ export function Navigation() {
 
   const navLinks = [
     { path: '/', label: 'HOME' },
+    { path: '/work', label: 'WORK' },
     { path: '/about', label: 'ABOUT' },
     { path: '/resume.pdf', label: 'RESUME', external: true },
   ];

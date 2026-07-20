@@ -52,7 +52,7 @@ export function MentorMeCollective() {
 
             <p className="text-body-large" style={{ color: 'var(--color-gray-text)' }}>
               Mentor Me Collective empowers students and young professionals through mentorship, equity, and access in tech. 
-              I create cohesive digital content, branded merchandise, and instructional materials that support MMC's mission—helping 
+              I create cohesive digital content, branded merchandise, and instructional materials that support MMC's mission, helping
               the community engage, learn, and grow.
             </p>
           </div>

@@ -27,7 +27,7 @@ export function About() {
       title: 'Co-Founder, Chief of Design & Development',
       company: 'Blyss Social',
       period: 'September 2021 - Present',
-      description: 'Design and develop the full mobile MVP using Figma, JavaScript, React, and React Native. Lead usability testing and manage all user-centered initiatives—from interviews to product development. Oversee end-to-end development across web and mobile, manage team operations, timelines, and hiring— aligning product direction with business strategy.',
+      description: 'Design and develop the full mobile MVP using Figma, JavaScript, React, and React Native. Lead usability testing and manage all user-centered initiatives, from interviews to product development. Oversee end-to-end development across web and mobile, manage team operations, timelines, and hiring, aligning product direction with business strategy.',
     },
     {
       title: 'UX Design Intern',
@@ -48,7 +48,7 @@ export function About() {
             </h1>
             <div className="space-y-6 text-gray-600 text-lg">
               <p>
-                I'm a diligent, creative, and empathetic problem solver who designs on the foundation of lived experience. For me, design is about impact—removing friction, building authentic connections, and bringing joy into daily experiences. I strive to reflect authenticity, compassion, and intentionality in both my work and collaboration.
+                I'm a diligent, creative, and empathetic problem solver who designs on the foundation of lived experience. For me, design is about impact: removing friction, building authentic connections, and bringing joy into daily experiences. I strive to reflect authenticity, compassion, and intentionality in both my work and collaboration.
               </p>
               <p>
                 My interdisciplinary background in psychology, engineering, entrepreneurship, and African/African-American studies shapes a human-centered, culturally aware approach. I've applied this to projects like Noted by Nani, social platforms, and equity-focused tech initiatives.              </p>
@@ -72,20 +72,19 @@ export function About() {
         <h2 className="mb-8 text-2xl font-bold" style={{ color: 'var(--color-maroon)' }}>
           SKILLS & EXPERTISE
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-5">
           {skills.map((skill) => (
-            <div
+            <p
               key={skill}
-              className="px-3 py-6 rounded-md"
               style={{
-                backgroundColor: '#F5F5F5',
-                color: '#5B5B5B',
-                fontSize: '13px',
+                color: 'var(--color-warm-grey)',
+                fontSize: '16px',
                 fontWeight: 'var(--font-weight-medium)',
+                lineHeight: '1.8',
               }}
             >
-              <p className="whitespace-nowrap text-sm text-center">{skill}</p>
-            </div>
+              {skill}
+            </p>
           ))}
         </div>
       </section>
@@ -95,9 +94,9 @@ export function About() {
         <h2 className="mb-12 text-2xl font-bold" style={{ color: 'var(--color-maroon)' }}>
           EXPERIENCE
         </h2>
-        <div className="space-y-12 mx-8">
+        <div className="space-y-20 mx-8">
           {experience.map((job, index) => (
-            <div key={index} className="border-l-2 pl-6" style={{ borderColor: 'var(--color-linen)' }}>
+            <div key={index} className="border-l-2 pl-6 py-2" style={{ borderColor: 'var(--color-linen)' }}>
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                 <h3 className="text-gray-900">
                   {job.title}

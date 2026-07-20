@@ -83,7 +83,7 @@ export function Blyss() {
               style={{ color: "var(--color-gray-text)" }}
             >
               Blyss Social connects young professionals with
-              curated events and guaranteed reservations—so they
+              curated events and guaranteed reservations, so they
               can focus on the experience, not the logistics.
             </p>
           </div>
@@ -328,7 +328,7 @@ export function Blyss() {
                 Reserve Instantly
               </h3>
               <p className="text-body">
-                Secure your spot with one tap—no more endless
+                Secure your spot with one tap. No more endless
                 group chats or last-minute coordination stress.
                 Reservations are guaranteed, letting you focus
                 on the experience.
@@ -489,7 +489,7 @@ export function Blyss() {
           </h2>
           <p className="text-body-large mb-16">
             200+ insights from usability testing sessions
-            revealed that users wanted more than dating—they
+            revealed that users wanted more than dating: they
             craved ways to meet friends, plan group events, and
             explore their city. In response to these insights
             and an oversaturated dating market, we pivoted to a

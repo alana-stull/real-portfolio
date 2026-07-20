@@ -56,7 +56,7 @@ export function NotedByNani() {
             >
               Noted by Nani leverages data-driven insights and digital
               planning strategies to help users structure their time,
-              analyze their habits, and prioritize tasks—so they can
+              analyze their habits, and prioritize tasks, so they can
               focus on meaningful work, not chaotic schedules.
             </p>
           </div>

@@ -55,7 +55,7 @@ export function Sereniti() {
             >
               Sereniti helps professionals and teams prioritize workplace
               wellbeing with tools for stress management, work-life balance,
-              and productivity—so they can stay focused, healthy, and perform
+              and productivity, so they can stay focused, healthy, and perform
               at their best.
             </p>
           </div>
@@ -360,7 +360,7 @@ export function Sereniti() {
               I believe that effective leadership starts with emotional
               awareness. By consciously regulating emotions and cultivating
               mindfulness, individuals can show up with clarity, empathy, and
-              resilience—strengthening both themselves and their teams.
+              resilience, strengthening both themselves and their teams.
             </p>
 
             {/* Emotional Regulation */}
@@ -600,7 +600,7 @@ export function Sereniti() {
               The platform:
             </h3>
             <p className="text-body-large">
-              A wellness platform built for modern workplaces—helping
+              A wellness platform built for modern workplaces, helping
               individuals track emotions, practice mindfulness, and managers
               provide proactive support.
             </p>

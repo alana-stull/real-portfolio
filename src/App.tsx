@@ -3,6 +3,7 @@ import { Layout } from './components/Layout';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './pages/Home';
 import { HomeSimple } from './pages/HomeSimple';
+import { Work } from './pages/Work';
 import { About } from './pages/About';
 import { Blyss } from './pages/case-studies/Blyss';
 import { NotedByNani } from './pages/case-studies/NotedByNani';
@@ -18,6 +19,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/homesimple" element={<HomeSimple />} />
+          <Route path="/work" element={<Work />} />
           <Route path="/about" element={<About />} />
           <Route path="/case-studies/blyss" element={<Blyss />} />
           <Route path="/case-studies/noted-by-nani" element={<NotedByNani />} />

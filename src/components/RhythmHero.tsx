@@ -52,7 +52,7 @@ export function RhythmHero() {
               className="text-body-large"
               style={{ color: "var(--color-warm-grey)" }}
             >
-              Rhythm evolved from a self-reported mood dashboard into a real-time physiological alignment system — replacing gut-feel tracking with biometric signal detection.
+              Rhythm evolved from a self-reported mood dashboard into a real-time physiological alignment system, replacing gut-feel tracking with biometric signal detection.
             </p>
           </div>
 

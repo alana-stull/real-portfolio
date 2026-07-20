@@ -221,7 +221,7 @@ export function HomeSimple() {
                 title: "Design",
                 subtitle: "Human-Centered",
                 description:
-                  "Skilled product designer experienced in design thinking, product development, and usability testing—crafting intuitive, human-centered experiences.",
+                  "Skilled product designer experienced in design thinking, product development, and usability testing, crafting intuitive, human-centered experiences.",
               },
               {
                 title: "Development",
@@ -233,7 +233,7 @@ export function HomeSimple() {
                 title: "AI & Emerging Tech",
                 subtitle: "Intelligent Design",
                 description:
-                  "Exploring how AI can enhance digital experiences—designing intelligent systems that make products more adaptive, useful, and intuitive.",
+                  "Exploring how AI can enhance digital experiences, designing intelligent systems that make products more adaptive, useful, and intuitive.",
               },
               {
                 title: "Strategy",
