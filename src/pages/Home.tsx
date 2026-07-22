@@ -344,7 +344,7 @@ export function Home() {
       {/* CTA Section */}
       <section className="max-w-7xl mx-auto px-6 pt-20 pb-6">
         <div
-          className="rounded-3xl p-12 md:p-16 relative overflow-hidden"
+          className="rounded-3xl p-8 md:p-16 relative overflow-hidden"
           style={{
             background: "linear-gradient(135deg, var(--color-ink) 0%, var(--color-brown) 50%, var(--color-maroon) 100%)",
           }}
@@ -364,9 +364,9 @@ export function Home() {
             </p>
             <h2
               style={{
-                fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                fontSize: "clamp(1rem, 4.2vw, 2.75rem)",
                 fontWeight: "var(--font-weight-bold)",
-                lineHeight: "1.1",
+                lineHeight: "1.2",
                 color: "var(--color-linen)",
                 marginBottom: "2rem",
               }}
