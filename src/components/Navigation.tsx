@@ -1,11 +1,25 @@
 import { Link, useLocation } from 'react-router';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Logo } from './Logo';
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+
+  // Shrink the header once the page scrolls, and publish its height so
+  // sticky case-study navs can sit right under it.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--site-header-h', scrolled ? '56px' : '92px');
+  }, [scrolled]);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -17,11 +31,11 @@ export function Navigation() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 py-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md">
+      <div className={`max-w-7xl mx-auto px-6 transition-[padding] duration-200 ${scrolled ? 'py-2' : 'py-4'}`}>
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Logo />
+          <Logo compact={scrolled} />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -32,10 +46,11 @@ export function Navigation() {
                   href={link.path}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors"
+                  className="transition-all duration-200"
                   style={{
                     color: 'var(--color-gray-text)',
-                    fontWeight: 'var(--font-weight-medium)'
+                    fontWeight: 'var(--font-weight-medium)',
+                    fontSize: scrolled ? 14 : 16
                   }}
                 >
                   {link.label}
@@ -44,10 +59,11 @@ export function Navigation() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="transition-colors"
+                  className="transition-all duration-200"
                   style={{
                     color: isActive(link.path) ? 'var(--color-maroon)' : 'var(--color-gray-text)',
-                    fontWeight: isActive(link.path) ? 'var(--font-weight-semibold)' : 'var(--font-weight-medium)'
+                    fontWeight: isActive(link.path) ? 'var(--font-weight-semibold)' : 'var(--font-weight-medium)',
+                    fontSize: scrolled ? 14 : 16
                   }}
                 >
                   {link.label}

@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 
-export function Logo() {
+export function Logo({ compact = false }: { compact?: boolean }) {
   return (
     <Link to="/" className="block hover:opacity-70 transition-opacity">
       <svg 
@@ -9,7 +9,7 @@ export function Logo() {
         viewBox="0 0 353 60" 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg"
-        className="h-[60px] w-auto"
+        className={`${compact ? "h-[40px]" : "h-[60px]"} w-auto transition-[height] duration-200`}
       >
         <mask id="path-1-outside-1_4461_5718" maskUnits="userSpaceOnUse" x="0" y="21" width="26" height="29" fill="black">
           <rect fill="white" y="21" width="26" height="29"/>

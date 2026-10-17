@@ -1,422 +1,227 @@
 import { Link } from "react-router";
-import { ArrowUpRight, ChevronRight } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
-import BlyssImageStatic from "figma:asset/a599320fb284b50fd85c5467705d2e1467d43acb.png";
-import RhythmImageStatic from "figma:asset/ea41269c606125350e08adaa0b350dd2e791ab23.png";
 import ClarityAssistImage from "figma:asset/33f3027060c6f4bca0459accb8f98b430d8f9f34.png";
-import {
-  FeaturedProjectCarousel,
-  type FeaturedProject,
-} from "../components/FeaturedProjectCarousel";
+import AmazonLearnImage from "figma:asset/2a7240ae2d20598003ea0a91aa16a212bbaaf224.png";
+import profileImage from "../imports/headshot.jpg";
+import "../styles/portfolio.css";
+import { BlyssComposition, CrwnComposition, RhythmComposition } from "../components/portfolio/ProjectComposition";
+import { Reveal } from "../components/portfolio/Reveal";
+import { PROJECT_COLORS } from "../components/portfolio/projectColors";
+
+/** "read the case study" link in the Work page's style: caps, project color, underline, arrow turns ↗ on hover. */
+function CaseLink({ color }: { color: string }) {
+  return (
+    <span className="pg-case-link" style={{ color, display: "inline-block", marginTop: 24 }}>
+      read the case study <span className="pg-case-arrow" aria-hidden="true">→</span>
+    </span>
+  );
+}
+
+const CLARITY_URL =
+  "https://www.figma.com/proto/fNmvcmDOMWIOM3WsYTqcDk/final-internship-presentation?page-id=0%3A1&node-id=1-12764&scaling=scale-down&content-scaling=fixed&t=QMY6bv2ctEgOflMs-1";
+const LEARN_URL =
+  "https://www.figma.com/proto/3mRKne0c0SZYgb92S28miA/all-presentations?page-id=0%3A1&node-id=0-2029&starting-point-node-id=0%3A2029&scaling=scale-down&content-scaling=fixed&t=Dr5c2C1eCFC6CWZe-1";
+
+const INDUSTRY = [
+  {
+    href: CLARITY_URL,
+    image: ClarityAssistImage,
+    alt: "Clarity Assist interface",
+    eyebrow: "04 · Amazon",
+    name: "Clarity Assist",
+    description: "making complex enterprise data more accessible through conversational AI.",
+  },
+  {
+    href: LEARN_URL,
+    image: AmazonLearnImage,
+    alt: "Amazon Learn assignments page",
+    eyebrow: "05 · AMAZON",
+    name: "Learn",
+    description:
+      "developed UI components for a career management platform used by 3M+ users, contributing to Amazon's internal design system.",
+    descMaxWidth: 500,
+  },
+];
 
 export function Home() {
-  const [currentCard, setCurrentCard] = useState(0);
-
-  const expertiseCards = [
-    {
-      title: "Design",
-      description:
-        "Skilled product designer experienced in design thinking, product development, and usability testing, crafting intuitive, human-centered experiences.",
-    },
-    {
-      title: "Development",
-      description:
-        "Expanding expertise in front-end development, building scalable, cross-platform interfaces that bring design systems to life.",
-    },
-    {
-      title: "AI & Emerging Tech",
-      description:
-        "Exploring how AI can enhance digital experiences, designing intelligent systems that make products more adaptive, useful, and intuitive.",
-    },
-    {
-      title: "Strategy",
-      description:
-        "Applying design strategy and product thinking to translate complex ideas into clear, impactful solutions.",
-    },
-    {
-      title: "Leadership",
-      description:
-        "Empathetic leader passionate about mentorship and community impact, committed to cultivating collaborative growth.",
-    },
-  ];
-
-  const nextCard = () => {
-    setCurrentCard((prev) => (prev + 1) % expertiseCards.length);
-  };
-
-  const featuredProjects: FeaturedProject[] = [
-    {
-      id: "blyss",
-      title: "Blyss Social",
-      category: "SOCIAL DISCOVERY",
-      image: BlyssImageStatic,
-      accentColor: "var(--color-maroon)",
-      ctaLabel: "View case study",
-      accordion: [
-        {
-          title: "The Pivot",
-          description:
-            "Killed the original dating app concept for something people actually needed.",
-        },
-        {
-          title: "End to End",
-          description:
-            "Every screen, every line of code, mine from Figma to shipped product.",
-        },
-        {
-          title: "App Store Push",
-          description:
-            "Currently learning Swift to take Blyss fully native.",
-        },
-      ],
-    },
-    {
-      id: "rhythm",
-      title: "Rhythm",
-      category: "PERSONAL WELLNESS",
-      image: RhythmImageStatic,
-      accentColor: "var(--color-tan)",
-      ctaLabel: "View case study",
-      accordion: [
-        {
-          title: "The Problem",
-          description:
-            "Wellness apps track data but rarely turn it into action.",
-        },
-        {
-          title: "The Build",
-          description:
-            "A web dashboard and Electron app pulling from Oura and Google Calendar in real time.",
-        },
-        {
-          title: "What's Next",
-          description:
-            "Layering in LLM-powered microbreak prompts as the product matures.",
-        },
-      ],
-    },
-    {
-      id: "clarity-assist",
-      title: "Clarity Assist",
-      category: "AMAZON INTERNSHIP",
-      image: ClarityAssistImage,
-      accentColor: "var(--color-brown)",
-      ctaLabel: "View prototype",
-      externalLink:
-        "https://www.figma.com/proto/fNmvcmDOMWIOM3WsYTqcDk/final-internship-presentation?page-id=0%3A1&node-id=1-12764&scaling=scale-down&content-scaling=fixed&t=QMY6bv2ctEgOflMs-1",
-      ndaNote: "Some specifics are limited due to NDA.",
-      accordion: [
-        {
-          title: "Two Users, One Tool",
-          description:
-            "Same AI system, built differently for corporate managers and hourly team leads.",
-        },
-        {
-          title: "Access as Strategy",
-          description:
-            "The real design problem wasn't the interface, it was who gets to see what.",
-        },
-        {
-          title: "The Impact",
-          description: "Why the split-access model mattered.",
-        },
-      ],
-    },
-  ];
-
   return (
-    <div style={{ backgroundColor: "var(--color-off-white)" }}>
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 pt-12 pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column - Content */}
-          <div className="max-w-5xl ml-0 lg:ml-12">
-            {/* Badge */}
-            <div className="mb-8">
-              <span
-                className="inline-block px-4 py-2 rounded-full"
-                style={{
-                  fontSize: "13px",
-                  fontWeight: "var(--font-weight-semibold)",
-                  letterSpacing: "0.05em",
-                  color: "var(--color-ink)",
-                  textTransform: "uppercase",
-                  backgroundColor: "var(--color-linen)",
-                }}
-              >
-                ux engineer & entrepreneur
-              </span>
-            </div>
-
-            {/* Main Headline */}
-            <h1
-              style={{
-                fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
-                fontWeight: "var(--font-weight-bold)",
-                lineHeight: "1.1",
-                color: "var(--color-ink)",
-                marginBottom: "1.5rem",
-              }}
-            >
-              hey, i'm alana!
-            </h1>
-
-            {/* Description */}
-            <p
-              style={{
-                fontSize: "clamp(1.125rem, 2vw, 1.5rem)",
-                lineHeight: "1.4",
-                color: "var(--color-warm-grey)",
-                marginBottom: "3rem",
-                maxWidth: "55rem",
-              }}
-            >
-              building human-centered, ai-powered experiences that{" "}
-              <span style={{ whiteSpace: "nowrap" }}>empower, connect, and simplify.</span>
+    <div className="pg">
+      {/* Hero */}
+      <section className="pg-wrap" style={{ paddingTop: "clamp(72px, 9vw, 120px)", paddingBottom: "clamp(64px, 7vw, 96px)" }}>
+        <Reveal>
+          <p className="pg-cat" style={{ fontSize: 16, letterSpacing: "0.12em" }}>
+            hi, i'm alana!
+          </p>
+          <h1 className="pg-hero-h">
+            i believe technology should give us
+            <br className="pg-hbr" /> <span style={{ color: "var(--color-maroon)" }}>more space to be human.</span>
+          </h1>
+          <div style={{ height: 1, background: "#E6DFD8", marginTop: "clamp(40px, 4.5vw, 56px)" }} />
+          <div className="pg-hero-cols">
+            <p className="pg-hero-l">product designer, frontend developer, and entrepreneur.</p>
+            <p className="pg-bd pg-hero-r">
+              i'm a builder at heart, drawn to ideas that make everyday life more connected, intentional, and enjoyable.
             </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="#work"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl transition-all duration-300 hover:shadow-lg group"
-                style={{
-                  backgroundColor: "var(--color-maroon)",
-                  color: "white",
-                  fontWeight: "var(--font-weight-medium)",
-                }}
-              >
-                <span>See my work</span>
-                <ArrowUpRight
-                  size={18}
-                  className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                />
-              </a>
-              <a
-                href="mailto:stull.alana@gmail.com"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl transition-all duration-300 hover:bg-opacity-80"
-                style={{
-                  backgroundColor: "var(--color-linen)",
-                  color: "var(--color-ink)",
-                  fontWeight: "var(--font-weight-medium)",
-                }}
-              >
-                Get in touch
-              </a>
-            </div>
           </div>
-
-          {/* Right Column - Stacked Cards */}
-          <div className="relative h-[500px] flex items-center justify-center">
-            {/* Background Cards - Stacked/Fanned Effect */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              {/* Third card - furthest back */}
-              <div
-                className="absolute w-[320px] h-[420px] rounded-2xl"
-                style={{
-                  backgroundColor: "var(--color-linen)",
-                  transform: "translateY(-16px) translateX(-12px) rotate(-4deg) scale(0.92)",
-                  zIndex: 1,
-                  opacity: 0.5,
-                }}
-              />
-              {/* Second card - middle */}
-              <div
-                className="absolute w-[320px] h-[420px] rounded-2xl"
-                style={{
-                  backgroundColor: "var(--color-linen)",
-                  transform: "translateY(-8px) translateX(-6px) rotate(-2deg) scale(0.96)",
-                  zIndex: 2,
-                  opacity: 0.7,
-                }}
-              />
-            </div>
-
-            {/* Active Card with Animation */}
-            <div className="relative z-10 w-[320px] h-[420px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentCard}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0 bg-white rounded-2xl p-8 flex flex-col"
-                  style={{
-                    border: "1px solid var(--color-linen)",
-                    transform: "rotate(3deg)",
-                    boxShadow: "0 32px 70px rgba(0, 0, 0, 0.12)",
-                  }}
-                >
-                  {/* Card Number */}
-                  <div
-                    className="text-sm mb-4"
-                    style={{
-                      color: "var(--color-warm-grey)",
-                      fontWeight: "var(--font-weight-medium)",
-                    }}
-                  >
-                    {String(currentCard + 1).padStart(2, "0")} / {String(expertiseCards.length).padStart(2, "0")}
-                  </div>
-
-                  {/* Card Title */}
-                  <h3
-                    style={{
-                      fontSize: "2rem",
-                      fontWeight: "var(--font-weight-bold)",
-                      color: "var(--color-maroon)",
-                      marginBottom: "1.5rem",
-                    }}
-                  >
-                    {expertiseCards[currentCard].title}
-                  </h3>
-
-                  {/* Card Description */}
-                  <p
-                    style={{
-                      fontSize: "1rem",
-                      lineHeight: "1.6",
-                      color: "var(--color-warm-grey)",
-                      flex: 1,
-                    }}
-                  >
-                    {expertiseCards[currentCard].description}
-                  </p>
-
-                  {/* Navigation Arrow at Bottom Right of Card */}
-                  <div className="flex justify-end mt-6">
-                    <button
-                      onClick={nextCard}
-                      className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-                      style={{
-                        backgroundColor: "var(--color-maroon)",
-                        color: "white",
-                      }}
-                      aria-label="Next card"
-                    >
-                      <ChevronRight size={24} />
-                    </button>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
+          <a href="#work" className="pg-lk" style={{ marginTop: "clamp(36px, 4vw, 48px)", fontSize: 17 }}>
+            explore my work ↓
+          </a>
+        </Reveal>
       </section>
 
-      {/* Featured Work Section */}
-      <section
-        id="work"
-        className="max-w-7xl mx-auto px-6 py-8 md:py-10"
-      >
-        <div className="flex items-center justify-between mb-4">
-          <h2
-            style={{
-              fontSize: "1.5rem",
-              fontWeight: "var(--font-weight-bold)",
-              color: "var(--color-maroon)",
-            }}
-          >
-            FEATURED WORK
-          </h2>
-
-          <Link
-            to="/work"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl transition-all duration-300 hover:shadow-lg group"
-            style={{
-              backgroundColor: "var(--color-linen)",
-              color: "var(--color-ink)",
-              fontWeight: "var(--font-weight-medium)",
-            }}
-          >
-            <span>See all work</span>
-            <ArrowUpRight
-              size={18}
-              className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-            />
+      {/* Selected work */}
+      <section id="work" className="pg-wrap" style={{ paddingTop: 24, paddingBottom: 24, scrollMarginTop: 100 }}>
+        <div className="pg-shd">
+          <h2 className="pg-cat">selected work</h2>
+          <Link to="/work" className="pg-lk" style={{ fontSize: 15 }}>
+            all work ↗
           </Link>
         </div>
 
-        <FeaturedProjectCarousel projects={featuredProjects} />
+        <Link to="/case-studies/blyss" className="pg-pj" style={{ marginTop: 40 }}>
+          <Reveal from="bottom" style={{ maxWidth: 900, margin: "0 auto" }}>
+            <BlyssComposition />
+          </Reveal>
+          <Reveal className="pg-feat-info">
+            <div>
+              <p className="pg-cat" style={{ color: PROJECT_COLORS.blyss }}>
+                01 · More connection
+              </p>
+              <p className="pg-pname" style={{ marginTop: 14 }}>
+                Blyss Social
+              </p>
+              <p className="pg-role" style={{ marginTop: 10 }}>
+                Co-Founder + CTO
+              </p>
+            </div>
+            <div>
+              <h3 className="pg-ph1">building a company around real-world connection.</h3>
+              <p className="pg-b" style={{ marginTop: 14, maxWidth: 560 }}>
+                co-founded and evolved a dating app into a social discovery platform, leading product strategy, design, and
+                engineering.
+              </p>
+              <CaseLink color={PROJECT_COLORS.blyss} />
+            </div>
+          </Reveal>
+        </Link>
+
+        <div className="pg-pdiv" role="presentation" />
+        <Link to="/case-studies/rhythm" className="pg-pj pg-prow">
+          <Reveal>
+            <p className="pg-cat" style={{ color: PROJECT_COLORS.rhythm }}>
+              02 · More alignment
+            </p>
+            <p className="pg-pname" style={{ marginTop: 14, fontSize: "clamp(32px, 3.4vw, 46px)" }}>
+              Rhythm
+            </p>
+            <p className="pg-role" style={{ marginTop: 8 }}>
+              Founder + UX Engineer
+            </p>
+            <h3 className="pg-ph1" style={{ marginTop: 24, fontSize: "clamp(22px, 2vw, 28px)" }}>
+              designing for capacity, not productivity.
+            </h3>
+            <p className="pg-b" style={{ marginTop: 12 }}>
+              developing a capacity intelligence platform connecting health, calendar, and task data to support daily
+              decision-making.
+            </p>
+            <CaseLink color={PROJECT_COLORS.rhythm} />
+          </Reveal>
+          <Reveal from="right" className="pg-prow-visual">
+            <RhythmComposition />
+          </Reveal>
+        </Link>
+
+        <div className="pg-pdiv" role="presentation" />
+        <Link to="/case-studies/crwn" className="pg-pj pg-prow pg-prow--flip">
+          <Reveal from="left" className="pg-prow-visual">
+            <CrwnComposition />
+          </Reveal>
+          <Reveal>
+            <p className="pg-cat" style={{ color: PROJECT_COLORS.crwn }}>
+              03 · More expression
+            </p>
+            <p className="pg-pname" style={{ marginTop: 14, fontSize: "clamp(32px, 3.4vw, 46px)" }}>
+              CRWN
+            </p>
+            <p className="pg-role" style={{ marginTop: 8 }}>
+              UX Engineer
+            </p>
+            <h3 className="pg-ph1" style={{ marginTop: 24, fontSize: "clamp(22px, 2vw, 28px)" }}>
+              reimagining textured hair discovery, community, and care.
+            </h3>
+            <p className="pg-b" style={{ marginTop: 12 }}>
+              designed and developed the platform from the ground up, spanning brand, product design, and frontend engineering.
+            </p>
+            <CaseLink color={PROJECT_COLORS.crwn} />
+          </Reveal>
+        </Link>
+
+        <div className="pg-pdiv" role="presentation" />
+        <Reveal>
+          {INDUSTRY.map((p, i) => (
+            <a
+              key={p.name}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pg-pj pg-irow pg-irow--home"
+              style={{ paddingTop: i === 0 ? 0 : 40 }}
+            >
+              <div className="pg-fig">
+                <img src={p.image} alt={p.alt} />
+              </div>
+              <div>
+                <p className="pg-cat">{p.eyebrow}</p>
+                <p className="pg-pname2" style={{ marginTop: 8, fontSize: 24 }}>
+                  {p.name}
+                </p>
+                <p className="pg-role" style={{ marginTop: 4 }}>
+                  UX Design Intern
+                </p>
+              </div>
+              <p className="pg-b pg-ix" style={{ maxWidth: "descMaxWidth" in p ? p.descMaxWidth : undefined }}>
+                {p.description}
+              </p>
+              <span className="pg-lk pg-ix" style={{ fontSize: 15 }}>
+                view project ↗<span className="sr-only"> (opens in a new tab)</span>
+              </span>
+            </a>
+          ))}
+        </Reveal>
       </section>
 
-      {/* CTA Section */}
-      <section className="max-w-7xl mx-auto px-6 pt-20 pb-6">
-        <div
-          className="rounded-3xl p-8 md:p-16 relative overflow-hidden"
-          style={{
-            background: "linear-gradient(135deg, var(--color-ink) 0%, var(--color-brown) 50%, var(--color-maroon) 100%)",
-          }}
-        >
-          <div className="relative z-10 max-w-3xl">
-            <p
-              style={{
-                fontSize: "14px",
-                fontWeight: "var(--font-weight-semibold)",
-                letterSpacing: "0.1em",
-                color: "var(--color-linen)",
-                textTransform: "uppercase",
-                marginBottom: "1rem",
-              }}
-            >
-              GET IN TOUCH
-            </p>
-            <h2
-              style={{
-                fontSize: "clamp(1rem, 4.2vw, 2.75rem)",
-                fontWeight: "var(--font-weight-bold)",
-                lineHeight: "1.2",
-                color: "var(--color-linen)",
-                marginBottom: "2rem",
-              }}
-            >
-              Let's create experiences that
-              <br />
-              <span
-                style={{
-                  color: "var(--color-tan)",
-                }}
-              >
-                empower, connect, and simplify.
-              </span>
-            </h2>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="mailto:stull.alana@gmail.com"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl transition-all duration-300 hover:bg-opacity-90 group"
-                style={{
-                  backgroundColor: "white",
-                  color: "var(--color-ink)",
-                  fontWeight: "var(--font-weight-medium)",
-                }}
-              >
-                <span>Email me</span>
-                <ArrowUpRight
-                  size={18}
-                  className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/alanastull/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl transition-all duration-300 hover:bg-white hover:bg-opacity-30 group"
-                style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.15)",
-                  color: "white",
-                  fontWeight: "var(--font-weight-medium)",
-                }}
-              >
-                <span>LinkedIn</span>
-                <ArrowUpRight
-                  size={18}
-                  className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                />
-              </a>
-            </div>
+      {/* About preview */}
+      <section className="pg-wrap" style={{ paddingTop: 80, paddingBottom: 24 }}>
+        <Reveal style={{ display: "flex", flexWrap: "wrap", gap: "48px 72px", alignItems: "center" }}>
+          <div className="pg-headshot" style={{ flex: "1 1 360px", maxWidth: 400 }}>
+            <img src={profileImage} alt="Alana Stull" />
           </div>
-        </div>
+          <div style={{ flex: "999 1 480px", minWidth: 0 }}>
+            <h2 className="pg-eyb">beyond the screen</h2>
+            <p style={{ margin: "20px 0 0", font: "700 clamp(2rem, 3.6vw, 2.75rem)/1.15 var(--pg-sans)", color: "var(--color-ink)" }}>
+              technology is my medium. <em style={{ color: "var(--color-maroon)" }}>for now.</em>
+            </p>
+            <p className="pg-bd" style={{ marginTop: 24, maxWidth: 640 }}>
+              i'm a product designer, frontend developer, and entrepreneur who cares about creating experiences that extend beyond a
+              screen.
+            </p>
+            <p className="pg-bd" style={{ marginTop: 14, maxWidth: 640 }}>
+              outside of building products, you'll usually find me exploring coffee shops, searching for the best matcha, or noticing
+              the little things that make a space feel welcoming.
+            </p>
+            <p style={{ margin: "20px 0 0", font: "700 22px/1.3 var(--pg-sans)", color: "var(--color-maroon)" }}>
+              one day, i'll open my own.
+            </p>
+            <p className="pg-bd" style={{ marginTop: 14, maxWidth: 640 }}>
+              a coffee shop and coworking space designed for people to work, connect, gather, or simply be.
+            </p>
+            <p className="pg-bd" style={{ marginTop: 14, maxWidth: 640 }}>
+              for now, i'm bringing that same curiosity and intention into the products i build.
+            </p>
+            <Link to="/about" className="pg-btn2" style={{ marginTop: 32 }}>
+              get to know me <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+        </Reveal>
       </section>
     </div>
   );

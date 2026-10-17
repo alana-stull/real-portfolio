@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+/* Figtree + Schibsted Grotesk are loaded with <link> tags in index.html (an @import here gets dropped by the Tailwind build). */
 
 @custom-variant dark (&:is(.dark *));
 

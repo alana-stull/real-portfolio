@@ -1,0 +1,1071 @@
+/* ========================================
+   RHYTHM CASE STUDY — SCOPED VISUAL SYSTEM
+   Imported only by the Rhythm case study page.
+   Everything below is scoped under .rhythm so it
+   never leaks into the rest of the portfolio.
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Tiempos, loaded locally under Rhythm-only family names so nothing else on the
+   site picks them up. These are Klim *test* builds (66 glyphs: no ? ' ! : ·),
+   so Gelasio sits next in the stack and fills in any missing characters.
+   Swap the four URLs below for licensed files before publishing. */
+@font-face {
+  font-family: 'Rhythm Tiempos Headline';
+  src: url('../assets/tiempos font/TestTiemposHeadline-Regular-BF66457a508e31a.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rhythm Tiempos Headline';
+  src: url('../assets/tiempos font/TestTiemposHeadline-RegularItalic-BF66457a5091d70.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rhythm Tiempos Text';
+  src: url('../assets/tiempos font/TestTiemposText-Regular-BF66457a50cd521.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rhythm Tiempos Text';
+  src: url('../assets/tiempos font/TestTiemposText-RegularItalic-BF66457a50421c2.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+.rhythm {
+  --rh-bg: #FDFBF8;
+  --rh-ink: #21201E;
+  --rh-body: #3D3A36;
+  --rh-muted: #66615B;
+
+  --rh-display: 'Rhythm Tiempos Headline', 'Gelasio', Georgia, serif;
+  --rh-editorial: 'Rhythm Tiempos Text', 'Gelasio', Georgia, serif;
+  --rh-sans: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --rh-accent: #C17E3A;
+  --rh-accent-dark: #8E5720;
+  /* Burnt orange deep enough for white text (4.6:1); --rh-accent with white is only 3.3:1 */
+  --rh-accent-strong: #A8652A;
+  --rh-band-ink: #242321;
+  --rh-accent-hover: #6A3F15;
+  --rh-border: #EAE3D9;
+  --rh-border-warm: #E3DDD4;
+  --rh-card: #FBF9F6;
+  --rh-panel: #F4EFE8;
+  --rh-panel-alt: #EFEBE5;
+  --rh-placeholder-bg: #F2ECE3;
+  --rh-placeholder-border: #C9A67C;
+  --rh-placeholder-text: #7A5226;
+  --rh-dark-card-bg: #26221E;
+  --rh-dark-card-text: #F4F1EC;
+  --rh-dark-card-accent: #E2B37E;
+  --rh-white: #FFFFFF;
+
+  --rh-aligned: #5B8F68;
+  --rh-aligned-text: #4E7F5B;
+  --rh-balanced: #4A86C8;
+  --rh-balanced-text: #3B72B0;
+  --rh-strained: #D8AC35;
+  --rh-strained-text: #946A12;
+  --rh-overloaded: #C0392B;
+  --rh-overloaded-text: #B23A30;
+
+  background: var(--rh-bg);
+  color: var(--rh-ink);
+  font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.rhythm a {
+  color: var(--rh-accent);
+}
+.rhythm a:hover {
+  color: var(--rh-accent-hover);
+}
+
+/* ---------- Typography ---------- */
+
+.rh-eyebrow {
+  font: 700 12px/1.2 'Figtree', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rh-accent-dark);
+}
+
+.rh-label {
+  font: 700 11px/1.3 'Figtree', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rh-muted);
+}
+
+/* Type system
+   - Display (Tiempos Headline Regular): hero + major section headlines (hero/xl/lg).
+     Italic emphasis is set in burnt ochre (the accent).
+   - Sans (Figtree, medium): subsection headings and supporting statements (md/sm/xs).
+     The second clause of a two-part statement drops to the muted tone.
+   - Editorial (Tiempos Text): a few select statements and the reflection.
+   Orange is reserved for a handful of intentional accents. */
+.rh-heading {
+  font-family: var(--rh-display);
+  font-weight: 400;
+  color: var(--rh-ink);
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+.rh-heading .it {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rh-accent);
+}
+
+.rh-h-hero { font-size: clamp(1.85rem, 2.6vw + 1rem, 3.25rem); line-height: 1.08; }
+.rh-h-xl   { font-size: clamp(1.65rem, 2vw + 1rem, 2.75rem);   line-height: 1.12; }
+.rh-h-lg   { font-size: clamp(1.5rem, 1.5vw + 1rem, 2.35rem);  line-height: 1.16; }
+
+.rh-h-md,
+.rh-h-sm,
+.rh-h-xs {
+  font-family: var(--rh-sans);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.rh-h-md .it,
+.rh-h-sm .it,
+.rh-h-xs .it {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--rh-muted);
+}
+.rh-h-md   { font-size: clamp(1.3rem, 0.8vw + 1rem, 1.65rem);  line-height: 1.25; }
+.rh-h-sm   { font-size: clamp(1.15rem, 0.5vw + 1rem, 1.375rem); line-height: 1.3; }
+.rh-h-xs   { font-size: clamp(1.05rem, 0.2vw + 1rem, 1.125rem); line-height: 1.4; }
+
+/* Editorial statement in Tiempos Text */
+.rh-editorial {
+  font-family: var(--rh-editorial);
+  font-weight: 400;
+  color: var(--rh-ink);
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+.rh-editorial--lg { font-size: clamp(1.25rem, 0.6vw + 1rem, 1.5rem); line-height: 1.45; }
+.rh-editorial--md { font-size: clamp(1.1rem, 0.3vw + 1rem, 1.25rem); line-height: 1.55; }
+
+/* Sentence-case kicker for subsections, lighter than the uppercase eyebrow */
+.rh-kicker {
+  font: 600 13px/1.4 var(--rh-sans);
+  color: var(--rh-muted);
+}
+.rh-kicker--eyebrow {
+  font: 700 12px/1.3 var(--rh-sans);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rh-accent);
+}
+
+.rh-body {
+  font: 400 16px/1.65 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--rh-body);
+  margin: 0;
+}
+.rh-body--lg {
+  font-size: clamp(1rem, 0.2vw + 0.95rem, 1.125rem);
+  line-height: 1.65;
+}
+.rh-body--sm {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.rh-small {
+  font: 400 14px/1.55 'Figtree', sans-serif;
+  color: var(--rh-muted);
+  margin: 0;
+}
+.rh-small--xs {
+  font-size: 12px;
+}
+
+/* ---------- Primitives ---------- */
+
+.rh-placeholder {
+  box-sizing: border-box;
+  background: var(--rh-placeholder-bg);
+  border: 1px dashed var(--rh-placeholder-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 14px;
+  font: 700 11px/1.5 'Figtree', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rh-placeholder-text);
+}
+.rh-placeholder--muted {
+  background: #E6E2DC;
+  border-color: #C9C1B6;
+  color: #6B6259;
+}
+.rh-placeholder--phone {
+  border-radius: 30px;
+  background: var(--rh-white);
+  border-color: var(--rh-border);
+  box-shadow: 0 20px 50px rgba(31, 27, 23, 0.1);
+  color: var(--rh-placeholder-text);
+}
+.rh-placeholder--phone-solid {
+  border-style: solid;
+  border-color: var(--rh-ink);
+  color: var(--rh-ink);
+}
+
+.rh-slot {
+  box-sizing: border-box;
+  border: 1px dashed var(--rh-placeholder-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font: 700 11px/1.6 'Figtree', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rh-placeholder-text);
+}
+
+.rh-card {
+  box-sizing: border-box;
+  background: var(--rh-white);
+  border: 1px solid var(--rh-border);
+  border-radius: 18px;
+  box-shadow: 0 1px 2px rgba(31, 27, 23, 0.04);
+}
+
+.rh-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  box-sizing: border-box;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1px solid var(--rh-border);
+  background: var(--rh-card);
+  font: 600 13px/1 'Figtree', sans-serif;
+  color: var(--rh-ink);
+  white-space: nowrap;
+}
+.rh-tag--pill {
+  border-radius: 999px;
+}
+.rh-tag--solid {
+  background: var(--rh-accent);
+  border-color: var(--rh-accent);
+  color: var(--rh-ink);
+  font-weight: 700;
+}
+.rh-tag--dark {
+  background: var(--rh-ink);
+  border-color: var(--rh-ink);
+  color: var(--rh-bg);
+}
+.rh-tag--outline {
+  height: 22px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-color: var(--rh-accent);
+  color: var(--rh-accent-dark);
+  background: transparent;
+}
+
+/* ---------- Case-study nav ---------- */
+
+.rh-navlink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 34px;
+  font: 700 11px/1.35 'Figtree', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6B6259;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.rh-navlink::before {
+  content: '';
+  width: 10px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--rh-border);
+  flex-shrink: 0;
+  transition: width 0.2s ease, background 0.2s ease;
+}
+.rh-navlink--active {
+  color: var(--rh-ink);
+}
+.rh-navlink--active::before {
+  width: 28px;
+  background: var(--rh-accent);
+}
+
+/* ---------- Layout scaffolding ---------- */
+
+.rhythm__shell {
+  display: flex;
+  align-items: stretch;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.rhythm__aside {
+  width: 208px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  border-right: 1px solid var(--rh-border);
+  padding: 8px 20px 0 0;
+}
+
+.rhythm__aside-inner {
+  position: sticky;
+  top: calc(var(--site-header-h, 92px) + 12px);
+  transition: top 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.rhythm__main {
+  flex-grow: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0 0 0 48px;
+}
+
+@media (max-width: 1024px) {
+  .rhythm__shell {
+    padding: 0;
+  }
+  .rhythm__aside {
+    display: none;
+  }
+  .rhythm__main {
+    padding: 0;
+  }
+}
+
+.rhythm__section {
+  padding-top: 88px;
+}
+.rhythm__section:first-of-type {
+  padding-top: 0;
+}
+
+@media (max-width: 640px) {
+  .rhythm__section {
+    padding-top: 56px;
+  }
+}
+
+/* ---------- Hero (same structure as the CRWN and Blyss heroes) ---------- */
+
+.rh-hero {
+  min-height: calc(100vh - 80px);
+  min-height: calc(100svh - 80px);
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.rh-hero:focus { outline: none; }
+.rh-hero__grid {
+  flex-grow: 1;
+  padding: 0 96px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 700px);
+  gap: 48px;
+  align-items: center;
+}
+/* Between 1101 and 1279px the text column is already narrow, so the mockups keep their old size there. */
+@media (max-width: 1279px) {
+  .rh-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 620px); }
+}
+.rh-hero__title {
+  font-size: clamp(3rem, 2rem + 4vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.rh-hero__visual {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  aspect-ratio: 620 / 600;
+}
+.rh-hero__web {
+  position: absolute;
+  left: 0;
+  top: 12%;
+  width: 76%;
+}
+.rh-hero__phone {
+  position: absolute;
+  width: 34%;
+}
+.rh-hero__band {
+  margin: 0;
+  background: var(--rh-accent);
+  padding: 26px 96px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+}
+.rh-hero__band-label {
+  font: 500 11px/1.3 'Figtree', sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rh-band-ink);
+}
+.rh-hero__band-value {
+  margin: 8px 0 0;
+  font: 600 16px/1.4 'Figtree', sans-serif;
+  color: var(--rh-band-ink);
+}
+
+@media (max-width: 1280px) {
+  .rh-hero__grid { padding: 0 48px; }
+  .rh-hero__band { padding: 26px 48px; }
+}
+@media (max-width: 1100px) {
+  .rh-hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 56px;
+    padding-bottom: 32px;
+    gap: 32px;
+  }
+  .rh-hero__visual { max-width: 580px; justify-self: center; }
+}
+@media (max-width: 900px) {
+  .rh-hero__band { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+}
+@media (max-width: 1024px) {
+  .rh-hero__grid { padding-left: 24px; padding-right: 24px; }
+  .rh-hero__band { padding: 24px; }
+}
+@media (max-width: 480px) {
+  .rh-hero__grid { padding: 40px 20px 24px; }
+  .rh-hero__band { padding: 24px 20px; }
+  .rh-hero__band-value { font-size: 15px; }
+}
+
+/* Sections receive focus after a nav jump; keep that invisible. */
+.rhythm__section:focus { outline: none; }
+
+/* The shell sits directly under the full-bleed band, so give the nav room. */
+.rhythm__shell { padding-top: 48px; }
+@media (max-width: 1024px) { .rhythm__shell { padding-top: 0; } }
+
+/* ---------- Mobile jump bar ---------- */
+
+.rh-jumpbar {
+  position: sticky;
+  top: var(--site-header-h, 80px);
+  transition: top 0.2s ease;
+  z-index: 20;
+  background: var(--rh-bg);
+  border-top: 1px solid var(--rh-border);
+  border-bottom: 1px solid var(--rh-border);
+}
+
+@media (min-width: 1025px) {
+  .rh-jumpbar {
+    display: none;
+  }
+}
+
+.rh-jumpbar__button {
+  width: 100%;
+  height: 52px;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px;
+  font-family: inherit;
+  cursor: pointer;
+  color: inherit;
+}
+
+.rh-jumpbar__progress {
+  height: 3px;
+  background: var(--rh-panel);
+}
+.rh-jumpbar__progress-fill {
+  height: 3px;
+  background: var(--rh-accent);
+  transition: width 0.2s ease;
+}
+
+.rh-jumpbar__panel {
+  border-bottom: 1px solid var(--rh-border);
+  background: var(--rh-white);
+  padding: 8px 8px 12px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.rh-jumpbar__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font: 700 11px/1 'Figtree', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rh-muted);
+  text-align: left;
+  cursor: pointer;
+}
+.rh-jumpbar__item--active {
+  color: var(--rh-ink);
+  background: var(--rh-panel);
+}
+
+/* ---------- Responsive layout helpers ---------- */
+
+@media (max-width: 900px) {
+  .rh-grid-stack,
+  .rh-grid-stack-3,
+  .rh-grid-stack-4 {
+    grid-template-columns: 1fr !important;
+  }
+  /* Staggered padding-top (used to create visual rhythm across a row
+     of cards) only makes sense side-by-side — once the grid collapses
+     to one column it would just leave dead gaps between stacked cards. */
+  .rh-destagger {
+    padding-top: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .rh-flex-stack {
+    flex-direction: column !important;
+  }
+  .rh-flex-stack > * {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .rh-hide-mobile {
+    display: none !important;
+  }
+  .rh-bleed {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 0 !important;
+  }
+}
+
+/* True edge-to-edge color bands — same technique used on the Blyss
+   page: below 1024px the aside is hidden and shell/main have no side
+   padding, so cancelling the inner wrapper's 24px gutter is enough.
+   At 1025px+ the aside is present, so the left margin cancels the
+   wrapper's 24px plus main's 48px gap (flush with the aside divider,
+   nav rail stays put) and the right margin reaches the true viewport
+   edge, accounting for the 1280px max-width's outer margin via max(). */
+.rh-bleed {
+  margin-left: -24px;
+  margin-right: -24px;
+}
+
+@media (min-width: 1025px) {
+  .rh-bleed {
+    margin-left: -72px;
+    margin-right: calc(-48px - max(0px, (100vw - 1280px) / 2));
+  }
+}
+
+.rh-divide-left {
+  border-left: 1px solid var(--rh-border);
+  padding-left: 32px;
+}
+@media (max-width: 900px) {
+  .rh-divide-left {
+    border-left: none;
+    border-top: 1px solid var(--rh-border);
+    padding-left: 0;
+    padding-top: 22px;
+  }
+}
+
+/* ---------- Product frames ---------- */
+
+/* iPhone device frame. Screenshots already include the status bar and
+   Dynamic Island, so the frame only adds the bezel and side buttons. */
+.rh-iphone {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 3.6%;
+  border-radius: 16% / 7.4%;
+  background: #1C1A18;
+  box-shadow:
+    inset 0 0 0 1.5px #4A4540,
+    inset 0 0 0 3px #1C1A18,
+    0 24px 60px rgba(31, 27, 23, 0.18);
+}
+/* Side buttons: action + volume on the left, power on the right */
+.rh-iphone::before,
+.rh-iphone::after {
+  content: '';
+  position: absolute;
+  width: 1.4%;
+  background: #2A2622;
+}
+.rh-iphone::before {
+  left: -1.2%;
+  top: 17%;
+  height: 15%;
+  border-radius: 2px 0 0 2px;
+  background:
+    linear-gradient(#2A2622 0 22%, transparent 22% 34%, #2A2622 34% 64%, transparent 64% 72%, #2A2622 72% 100%);
+}
+.rh-iphone::after {
+  right: -1.2%;
+  top: 24%;
+  height: 10%;
+  border-radius: 0 2px 2px 0;
+}
+
+.rh-iphone__screen {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  aspect-ratio: 1206 / 2622;
+  object-fit: cover;
+  border-radius: 12.5% / 5.8%;
+  background: var(--rh-bg);
+}
+
+.rh-iphone__screen--empty {
+  position: relative;
+  background: var(--rh-placeholder-bg);
+}
+
+.rh-iphone__island {
+  position: absolute;
+  top: 2.2%;
+  left: 50%;
+  width: 30%;
+  height: 3.4%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #1C1A18;
+}
+
+.rh-iphone__screen--empty,
+.rh-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  text-align: center;
+  font: 700 11px/1.5 'Figtree', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rh-placeholder-text);
+}
+
+.rh-frame {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 14px;
+  background: var(--rh-placeholder-bg);
+  border: 1px dashed var(--rh-placeholder-border);
+}
+
+.rh-phone__hint {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  opacity: 0.75;
+}
+
+/* Two phones side by side stay paired even on small screens. */
+.rh-phone-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 2.5vw, 28px);
+  align-items: start;
+}
+
+/* ---------- Callouts ---------- */
+
+.rh-callouts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+}
+.rh-callouts li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+.rh-callouts__num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--rh-accent-strong);
+  color: var(--rh-white);
+  font: 700 11px/24px 'Figtree', sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+}
+.rh-callouts__title {
+  font: 600 15px/1.4 var(--rh-sans);
+  color: var(--rh-ink);
+}
+
+/* ---------- Capacity matrix ---------- */
+
+.rh-matrix {
+  display: grid;
+  grid-template-columns: 88px repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+.rh-matrix__cell {
+  border-radius: 10px;
+  padding: 14px 12px;
+  font: 700 13px/1.2 'Figtree', sans-serif;
+  color: var(--rh-ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  box-sizing: border-box;
+}
+.rh-matrix__axis {
+  font: 700 10px/1.3 'Figtree', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rh-muted);
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 480px) {
+  .rh-matrix { grid-template-columns: 64px repeat(3, minmax(0, 1fr)); }
+  .rh-matrix__cell { font-size: 11px; padding: 10px 8px; }
+}
+
+/* Subsection rule inside a long section */
+.rh-subsection {
+  margin-top: 112px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rh-border);
+}
+@media (max-width: 640px) {
+  .rh-subsection { margin-top: 72px; }
+}
+
+/* A frame tucked behind another phone keeps its placeholder label clear of the overlap. */
+.rh-iphone--behind .rh-iphone__screen--empty {
+  padding-left: 30%;
+}
+
+/* ---------- Experience layouts ----------
+   One phone size across the section: 260px wide for paired and row phones. */
+
+.rh-exp-row {
+  display: grid;
+  gap: 56px;
+  align-items: center;
+}
+
+.rh-phone-pair--fixed {
+  grid-template-columns: repeat(2, 260px);
+}
+@media (max-width: 1180px) {
+  .rh-phone-pair--fixed { grid-template-columns: repeat(2, minmax(0, 220px)); }
+}
+@media (max-width: 900px) {
+  .rh-phone-pair--fixed { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.rh-learning {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 260px));
+  justify-content: center;
+  gap: 40px;
+  align-items: start;
+}
+/* Stagger the middle phone, like the other pairs on the page */
+.rh-learning > li:nth-child(2) { margin-top: 48px; }
+
+@media (max-width: 900px) {
+  .rh-learning {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .rh-learning > li:nth-child(2) { margin-top: 0; }
+}
+@media (max-width: 560px) {
+  .rh-learning { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; }
+}
+
+/* ---------- Architecture pipeline ---------- */
+
+.rh-pipeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 14px minmax(0, 1fr) 14px minmax(0, 1fr) 14px minmax(0, 1fr) 14px minmax(0, 1fr);
+  gap: 6px;
+  align-items: stretch;
+}
+.rh-pipeline__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--rh-accent);
+  font-size: 18px;
+}
+.rh-pipeline__step {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--rh-border);
+  background: var(--rh-white);
+  min-height: 132px;
+  box-sizing: border-box;
+}
+.rh-pipeline__step--dark {
+  background: var(--rh-dark-card-bg);
+  border-color: var(--rh-dark-card-bg);
+}
+.rh-pipeline__step--accent {
+  border-color: var(--rh-accent);
+}
+.rh-pipeline__num {
+  font: 700 11px/1 'Figtree', sans-serif;
+  letter-spacing: 0.1em;
+  color: var(--rh-accent-dark);
+}
+.rh-pipeline__label {
+  font: 600 clamp(14px, 0.5vw + 8px, 15px)/1.25 var(--rh-sans);
+  color: var(--rh-ink);
+}
+.rh-pipeline__detail {
+  font: 400 14px/1.45 'Figtree', sans-serif;
+  color: var(--rh-muted);
+}
+.rh-pipeline__step--dark .rh-pipeline__num { color: var(--rh-dark-card-accent); }
+.rh-pipeline__step--dark .rh-pipeline__label { color: var(--rh-dark-card-text); }
+.rh-pipeline__step--dark .rh-pipeline__detail { color: rgba(244, 241, 236, 0.72); }
+
+/* Five steps need ~140px each; below 1180px (sidebar still showing) stack them. */
+@media (max-width: 1180px) {
+  .rh-pipeline { grid-template-columns: minmax(0, 1fr); }
+  .rh-pipeline__arrow { transform: rotate(90deg); height: 20px; }
+  .rh-pipeline__step { min-height: 0; padding: 16px 18px; }
+}
+
+/* ---------- Attention spectrum ---------- */
+
+.rh-spectrum {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+}
+.rh-spectrum__bar {
+  margin-top: 28px;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--rh-ink), var(--rh-accent) 70%, rgba(193, 126, 58, 0.15));
+}
+@media (max-width: 900px) {
+  .rh-spectrum { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 28px; }
+}
+
+/* ---------- Milestones ---------- */
+
+.rh-milestones {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+}
+.rh-milestones li {
+  border-top: 1px solid var(--rh-ink);
+  padding-top: 14px;
+}
+.rh-milestones p {
+  margin: 8px 0 0;
+  font: 500 15px/1.4 var(--rh-sans);
+  color: var(--rh-ink);
+}
+@media (max-width: 900px) {
+  .rh-milestones { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 24px; }
+}
+
+
+/* Single-line headings on wide screens; they wrap normally once space runs out. */
+@media (min-width: 1280px) {
+  .rh-nowrap-wide { white-space: nowrap; }
+}
+
+/* Connected + self-reported signals on one row */
+.rh-signal-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.rh-signal-row .rh-tag { height: 26px; font-size: 12px; padding: 0 8px; }
+.rh-signal-row__group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.rh-signal-row__group > .rh-label { margin-right: 4px; white-space: nowrap; }
+.rh-signal-row__op {
+  color: var(--rh-accent);
+  font-size: 18px;
+}
+
+/* Declared after the base rules above so it wins: one row once there's room. */
+@media (min-width: 1280px) {
+  .rh-signal-row,
+  .rh-signal-row__group { flex-wrap: nowrap; }
+}
+
+/* Sit the hero content a little lower in the first screen (desktop layout only;
+   the stacked layout below 1100px already has its own top padding). */
+@media (min-width: 1101px) {
+  .rh-hero {
+    box-sizing: border-box;
+    padding-top: 46px;
+  }
+  /* Lift the mockups a little further than the text to trim the space above them. */
+  .rh-hero__visual { top: -4px; }
+}
+
+/* ---------- Early exploration charts ---------- */
+
+.rh-charts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 28px 0 0;
+}
+.rh-chart {
+  margin: 0;
+}
+.rh-chart__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  box-sizing: border-box;
+  padding: 16px;
+  background: var(--rh-white);
+  border: 1px solid var(--rh-border);
+  border-radius: 14px;
+}
+.rh-chart figcaption {
+  margin-top: 12px;
+}
+@media (max-width: 768px) {
+  .rh-charts { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- Desktop window frame ---------- */
+
+.rh-desktop {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--rh-white);
+  border: 1px solid var(--rh-border);
+  box-shadow: 0 24px 60px rgba(31, 27, 23, 0.14);
+}
+.rh-desktop__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 12px;
+  background: #F1EDE7;
+  border-bottom: 1px solid var(--rh-border);
+}
+.rh-desktop__bar span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #D9D2C8;
+}
+.rh-desktop__bar span:nth-child(1) { background: #EC6A5E; }
+.rh-desktop__bar span:nth-child(2) { background: #F4BF4F; }
+.rh-desktop__bar span:nth-child(3) { background: #61C554; }
+.rh-desktop__screen {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top left;
+}
+
+/* ---------- Prototype videos ---------- */
+
+.rh-evolution {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.rh-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 14px;
+  border: 1px solid var(--rh-border);
+  background: var(--rh-panel);
+}
+@media (max-width: 768px) {
+  .rh-evolution { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+}

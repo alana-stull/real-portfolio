@@ -1,0 +1,526 @@
+/* ========================================
+   BLYSS CASE STUDY — SCOPED VISUAL SYSTEM
+   Imported only by the Blyss case study page.
+   Everything below is scoped under .blyss so it
+   never leaks into the rest of the portfolio.
+   ======================================== */
+
+.blyss {
+  --bl-bg: #FCFCFC;
+  --bl-ink: #333333;
+  --bl-navy: #375169;
+  --bl-navy-hover: #23384B;
+  --bl-sky: #5BA8D3;
+  --bl-sky-pale: #EAF3F8;
+  --bl-panel: #F1F7FA;
+  --bl-panel-soft: #F1F5F8;
+  --bl-powder: #B7D3E0;
+  --bl-powder-light: #D5E6EE;
+  --bl-border: #E3E4E6;
+  --bl-grey: #6B7076;
+  --bl-grey-dark: #4A4F55;
+  --bl-grey-navy: #4A5F73;
+  --bl-grey-cool: #8B8F94;
+  --bl-grey-light: #C5C8CC;
+  --bl-grey-bg: #ECEDEF;
+  --bl-grey-blur: #D5D8DB;
+  --bl-amber: #F2C05A;
+  --bl-white: #FFFFFF;
+
+  background: var(--bl-bg);
+  color: var(--bl-ink);
+  font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.blyss a {
+  color: var(--bl-navy);
+}
+.blyss a:hover {
+  color: var(--bl-navy-hover);
+}
+
+/* ---------- Typography ---------- */
+
+.bl-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--bl-sky-pale);
+  color: var(--bl-navy);
+  font: 700 11px/1 'Figtree', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.bl-eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bl-sky);
+  flex-shrink: 0;
+}
+.bl-eyebrow--on-white {
+  background: var(--bl-white);
+}
+.bl-eyebrow--dark {
+  background: rgba(255, 255, 255, 0.12);
+  color: #DCE6EE;
+}
+.bl-eyebrow--dark::before {
+  background: var(--bl-sky);
+}
+
+.bl-label {
+  font: 700 11px/1.3 'Figtree', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bl-grey);
+}
+
+.bl-heading {
+  font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  color: var(--bl-ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.bl-heading .hl {
+  color: var(--bl-navy);
+  font-weight: 800;
+}
+
+/* Scaled to match the rest of the site's type scale (home page's
+   biggest heading tops out around 4.5rem/72px) rather than the
+   reference's non-responsive 1440px canvas, which ran up to 112px. */
+.bl-h-hero { font-size: clamp(1.85rem, 2.6vw + 1rem, 3.25rem); line-height: 1.08; }
+.bl-h-xl   { font-size: clamp(1.65rem, 2vw + 1rem, 2.75rem);   line-height: 1.1; }
+.bl-h-lg   { font-size: clamp(1.5rem, 1.5vw + 1rem, 2.35rem);  line-height: 1.15; }
+.bl-h-md   { font-size: clamp(1.35rem, 1.1vw + 1rem, 2rem);    line-height: 1.2; }
+.bl-h-sm   { font-size: clamp(1.2rem, 0.7vw + 1rem, 1.6rem);   line-height: 1.25; }
+.bl-h-xs   { font-size: clamp(1.1rem, 0.35vw + 1rem, 1.3rem);  line-height: 1.35; }
+
+.bl-body {
+  font: 400 16px/1.6 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--bl-ink);
+  margin: 0;
+}
+.bl-body--lg {
+  font-size: clamp(1rem, 0.2vw + 0.95rem, 1.125rem);
+  line-height: 1.6;
+}
+.bl-body--sm {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--bl-grey-dark);
+}
+
+.bl-small {
+  font: 500 13px/1.55 'Figtree', sans-serif;
+  color: var(--bl-grey);
+  margin: 0;
+}
+.bl-small--xs {
+  font-size: 12px;
+}
+
+.bl-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ---------- Primitives ---------- */
+
+.bl-placeholder {
+  box-sizing: border-box;
+  background: var(--bl-panel-soft);
+  border: 1px dashed #9CC3D8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 14px;
+  font: 700 11px/1.5 'Figtree', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bl-navy);
+}
+.bl-placeholder--solid {
+  background: var(--bl-white);
+  border-style: solid;
+  border-color: var(--bl-navy);
+}
+.bl-placeholder--muted {
+  background: var(--bl-grey-bg);
+  border-color: var(--bl-grey-light);
+  color: var(--bl-grey);
+}
+.bl-placeholder--soft {
+  background: var(--bl-panel-soft);
+  border-color: #9CC3D8;
+  color: var(--bl-navy);
+}
+
+.bl-slot {
+  box-sizing: border-box;
+  border: 1px dashed var(--bl-powder);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font: 700 11px/1.6 'Figtree', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bl-grey-navy);
+}
+
+.bl-card {
+  box-sizing: border-box;
+  background: var(--bl-white);
+  border: 1px solid var(--bl-border);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(55, 81, 105, 0.06);
+}
+
+.bl-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  box-sizing: border-box;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--bl-border);
+  background: var(--bl-white);
+  color: var(--bl-ink);
+  font: 600 13px/1 'Figtree', sans-serif;
+  white-space: nowrap;
+}
+.bl-pill--on {
+  background: var(--bl-powder);
+  border-color: var(--bl-powder);
+  color: var(--bl-navy);
+}
+.bl-pill--selected {
+  background: var(--bl-navy);
+  border-color: var(--bl-navy);
+  color: var(--bl-white);
+}
+.bl-pill--amber {
+  background: var(--bl-amber);
+  border-color: var(--bl-amber);
+  color: var(--bl-ink);
+}
+.bl-pill--dashed {
+  border-style: dashed;
+  color: var(--bl-grey);
+}
+
+.bl-avatar {
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--bl-white);
+  margin-left: -10px;
+  flex-shrink: 0;
+}
+.bl-avatar:first-child {
+  margin-left: 0;
+}
+.bl-avatar--dashed {
+  border: 1.5px dashed var(--bl-grey);
+  background: transparent !important;
+}
+
+/* ---------- Case-study nav ---------- */
+
+.bl-navlink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 34px;
+  font: 600 13px/1 'Figtree', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #71767B;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.bl-navlink::before {
+  content: '';
+  width: 10px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--bl-border);
+  flex-shrink: 0;
+  transition: width 0.2s ease, background 0.2s ease;
+}
+.bl-navlink--active {
+  color: var(--bl-navy);
+}
+.bl-navlink--active::before {
+  width: 28px;
+  background: var(--bl-sky);
+}
+
+/* ---------- Layout scaffolding ---------- */
+
+.blyss__shell {
+  display: flex;
+  align-items: stretch;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.blyss__aside {
+  width: 190px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  border-right: 1px solid var(--bl-border);
+  padding: 8px 20px 0 0;
+}
+
+.blyss__aside-inner {
+  position: sticky;
+  top: calc(var(--site-header-h, 92px) + 12px);
+  transition: top 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.blyss__main {
+  flex-grow: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0 0 0 48px;
+}
+
+@media (max-width: 1024px) {
+  .blyss__shell {
+    padding: 0;
+  }
+  .blyss__aside {
+    display: none;
+  }
+  .blyss__main {
+    padding: 0;
+  }
+}
+
+.blyss__section {
+  padding-top: 88px;
+}
+.blyss__section:first-of-type {
+  padding-top: 0;
+}
+
+@media (max-width: 640px) {
+  .blyss__section {
+    padding-top: 56px;
+  }
+}
+
+/* ---------- Mobile jump bar ---------- */
+
+.bl-jumpbar {
+  position: sticky;
+  top: var(--site-header-h, 80px); /* clears the site's fixed header, which shrinks on scroll */
+  transition: top 0.2s ease;
+  z-index: 20;
+  background: var(--bl-bg);
+  border-top: 1px solid var(--bl-border);
+  border-bottom: 1px solid var(--bl-border);
+}
+
+@media (min-width: 1025px) {
+  .bl-jumpbar {
+    display: none;
+  }
+}
+
+.bl-jumpbar__button {
+  width: 100%;
+  height: 52px;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px;
+  font-family: inherit;
+  cursor: pointer;
+  color: inherit;
+}
+
+.bl-jumpbar__progress {
+  height: 3px;
+  background: var(--bl-sky-pale);
+}
+.bl-jumpbar__progress-fill {
+  height: 3px;
+  background: var(--bl-sky);
+  transition: width 0.2s ease;
+}
+
+.bl-jumpbar__panel {
+  border-bottom: 1px solid var(--bl-border);
+  background: var(--bl-white);
+  padding: 8px 8px 12px;
+}
+
+.bl-jumpbar__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font: 600 13px/1 'Figtree', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--bl-grey);
+  text-align: left;
+  cursor: pointer;
+}
+.bl-jumpbar__item--active {
+  color: var(--bl-navy);
+  background: var(--bl-sky-pale);
+}
+
+/* ---------- Responsive layout helpers ----------
+   Sections lay themselves out with inline grid/flex
+   styles (since exact column counts/gaps vary per
+   diagram); these utility classes collapse them to a
+   single column on narrower viewports without every
+   section needing its own media query. */
+
+@media (max-width: 900px) {
+  .bl-grid-stack,
+  .bl-grid-stack-3,
+  .bl-grid-stack-wide {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .bl-flex-stack {
+    flex-direction: column !important;
+  }
+  .bl-flex-stack > * {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .bl-hide-mobile {
+    display: none !important;
+  }
+}
+
+/* True edge-to-edge color bands. Below the 1024px breakpoint the
+   aside is hidden and the shell/main have no side padding, so
+   cancelling just the inner content wrapper's 24px gutter reaches
+   the real viewport edges. At 1025px+ the aside is present and the
+   shell is a centered, max-width, padded container, so reaching the
+   true edges takes more: the left margin cancels the wrapper's 24px
+   plus main's 48px gap so the band starts flush against the aside's
+   divider (not the viewport edge — the nav rail stays put), and the
+   right margin cancels the wrapper's 24px, the shell's 24px padding,
+   and (via max()) whatever outer margin the 1280px max-width leaves
+   on wide screens, so the right edge always lands on the true
+   viewport edge. */
+.bl-bleed {
+  margin-left: -24px;
+  margin-right: -24px;
+  border-radius: 0;
+}
+
+@media (min-width: 1025px) {
+  .bl-bleed {
+    margin-left: -72px;
+    margin-right: calc(-48px - max(0px, (100vw - 1280px) / 2));
+  }
+}
+
+.bl-hero-logo {
+  width: 40px;
+  height: auto;
+  flex-shrink: 0;
+  display: block;
+}
+@media (max-width: 640px) {
+  .bl-hero-logo {
+    width: 28px;
+  }
+}
+
+/* Full-width band pinned to the very bottom of the hero. The hero
+   sits inside its own centered, max-width, padded container (no
+   aside yet, so unlike .bl-bleed this bleed is symmetric) — the
+   negative margins cancel that padding plus whatever outer margin
+   the 1280px cap leaves on wide screens, via max(), and the padding
+   re-adds the same amount on the inside so its content lines up with
+   the text column above it while the background still runs edge to
+   edge. The max() term evaluates to 0 below 1280px, so one rule
+   covers every viewport without a breakpoint. */
+.bl-hero-band {
+  margin-top: 48px;
+  margin-left: calc(-24px - max(0px, (100vw - 1280px) / 2));
+  margin-right: calc(-24px - max(0px, (100vw - 1280px) / 2));
+  padding: 28px calc(24px + max(0px, (100vw - 1280px) / 2));
+  background: var(--bl-navy);
+}
+
+/* Full-screen intro. Sits outside the aside/main shell entirely, so
+   the case-study nav stays off-screen until the reader scrolls past
+   it — it only mounts once .blyss__shell begins. */
+.blyss__hero {
+  min-height: calc(100vh - 80px); /* 80px = Layout's fixed-header offset (pt-20) */
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* Fills the space above the stats band and centers the hero copy/
+   mocks within it, so the band itself reads as pinned to the very
+   bottom of the screen instead of trailing after centered content. */
+.blyss__hero-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+.blyss__hero-content > * {
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .blyss__hero {
+    min-height: calc(100vh - 64px);
+  }
+}
+
+/* A left divider between grid columns reads fine side-by-side, but
+   once bl-grid-stack collapses the grid to one column it needs to
+   become a top divider instead of a vertical bar floating on the left. */
+.bl-divide-left {
+  border-left: 1px solid var(--bl-border);
+  padding-left: 24px;
+}
+@media (max-width: 900px) {
+  .bl-divide-left {
+    border-left: none;
+    border-top: 1px solid var(--bl-border);
+    padding-left: 0;
+    padding-top: 20px;
+  }
+}
+

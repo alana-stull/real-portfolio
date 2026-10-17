@@ -6,6 +6,7 @@ import { HomeSimple } from './pages/HomeSimple';
 import { Work } from './pages/Work';
 import { About } from './pages/About';
 import { Blyss } from './pages/case-studies/Blyss';
+import { Crwn } from './pages/case-studies/Crwn';
 import { NotedByNani } from './pages/case-studies/NotedByNani';
 import { Sereniti } from './pages/case-studies/Sereniti';
 import { MentorMeCollective } from './pages/case-studies/MentorMeCollective';
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/work" element={<Work />} />
           <Route path="/about" element={<About />} />
           <Route path="/case-studies/blyss" element={<Blyss />} />
+          <Route path="/case-studies/crwn" element={<Crwn />} />
           <Route path="/case-studies/noted-by-nani" element={<NotedByNani />} />
           <Route path="/case-studies/sereniti" element={<Sereniti />} />
           <Route path="/case-studies/mentor-me-collective" element={<MentorMeCollective />} />
