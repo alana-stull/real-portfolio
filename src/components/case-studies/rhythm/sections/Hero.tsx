@@ -30,6 +30,15 @@ export function Hero() {
             A capacity intelligence system that connects wearable data and daily demands to help
             people make more informed decisions about their day.
           </Body>
+          <a
+            href="https://findrhythm.co"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 20, fontSize: 16, fontWeight: 600, color: "#8E5720", textDecoration: "underline", textUnderlineOffset: 4, textDecorationThickness: 1 }}
+          >
+            Visit findrhythm.co <span aria-hidden="true">↗</span>
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
         </motion.div>
 
         {/* Web Today in a desktop frame, with iOS Insights in front of its lower-right edge. */}

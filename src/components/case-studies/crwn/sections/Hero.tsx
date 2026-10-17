@@ -30,6 +30,15 @@ export function Hero() {
           <Body style={{ marginTop: 24, maxWidth: 520 }}>
             CRWN is the digital home for textured hair: inspiration, education, and trusted providers, all in one place.
           </Body>
+          <a
+            href="https://www.crwnhq.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 20, fontSize: 16, fontWeight: 600, color: "#562321", textDecoration: "underline", textUnderlineOffset: 4, textDecorationThickness: 1 }}
+          >
+            Visit crwnhq.com <span aria-hidden="true">↗</span>
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
         </motion.div>
 
         <motion.div className="crwn-hero__visual" {...fadeUp(0.15)}>
