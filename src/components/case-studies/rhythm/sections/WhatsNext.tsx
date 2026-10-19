@@ -105,12 +105,12 @@ export function WhatsNext() {
           gap: 24,
         }}
       >
-        <Link to="/case-studies/blyss" style={{ textDecoration: "none", color: "var(--rh-ink)" }}>
+        <Link to="/case-studies/crwn" style={{ textDecoration: "none", color: "var(--rh-ink)" }}>
           <Label>Next project</Label>
           <Heading size="sm" style={{ marginTop: 10 }}>
-            Blyss →
+            CRWN →
           </Heading>
-          <Body style={{ marginTop: 4, fontStyle: "italic" }}>less planning. more living.</Body>
+          <Body style={{ marginTop: 4, fontStyle: "italic" }}>the home for every textured hair journey.</Body>
         </Link>
         <a href="#hero" className="rh-label" style={{ textDecoration: "none" }}>
           Back to top ↑
