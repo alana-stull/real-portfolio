@@ -45,12 +45,12 @@ A clean, professional portfolio website built with React, featuring modular case
 - `/` - Home page
 - `/about` - About page
 - `/work` - All work overview
-- `/case-studies/blyss` - Blyss Social case study
-- `/case-studies/noted-by-nani` - Noted by Nani case study
-- `/case-studies/sereniti` - Sereniti case study
-- `/case-studies/clarity-assist` - Clarity Assist case study
-- `/case-studies/amazon-learn` - Amazon Learn case study
-- `/case-studies/mentor-me-collective` - Mentor Me Collective case study
+- `/blyss` - Blyss Social case study
+- `/noted-by-nani` - Noted by Nani case study
+- `/sereniti` - Sereniti case study
+- `/clarity-assist` - Clarity Assist case study
+- `/amazon-learn` - Amazon Learn case study
+- `/mentor-me-collective` - Mentor Me Collective case study
 
 ## ✏️ How to Customize
 

@@ -366,7 +366,7 @@ export function HomeSimple() {
               className="h-full"
             >
               <Link
-                to={`/case-studies/${project.id}`}
+                to={`/${project.id}`}
                 className="group block h-full"
               >
                 <ProjectCard project={project} index={index} />
@@ -422,7 +422,7 @@ export function HomeSimple() {
                 </a>
               ) : (
                 <Link
-                  to={`/case-studies/${project.id}`}
+                  to={`/${project.id}`}
                   className="group block h-full"
                 >
                   <ProjectCard

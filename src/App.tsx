@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router';
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router';
 import { Layout } from './components/Layout';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './pages/Home';
@@ -23,15 +23,23 @@ export default function App() {
           <Route path="/homesimple" element={<HomeSimple />} />
           <Route path="/work" element={<Work />} />
           <Route path="/about" element={<About />} />
-          <Route path="/case-studies/blyss" element={<Blyss />} />
-          <Route path="/case-studies/crwn" element={<Crwn />} />
-          <Route path="/case-studies/noted-by-nani" element={<NotedByNani />} />
-          <Route path="/case-studies/sereniti" element={<Sereniti />} />
-          <Route path="/case-studies/mentor-me-collective" element={<MentorMeCollective />} />
-          <Route path="/case-studies/rhythm" element={<Rhythm />} />
-          <Route path="/case-studies/design-intelligence-lab" element={<DesignIntelligenceLab />} />
+          <Route path="/blyss" element={<Blyss />} />
+          <Route path="/crwn" element={<Crwn />} />
+          <Route path="/noted-by-nani" element={<NotedByNani />} />
+          <Route path="/sereniti" element={<Sereniti />} />
+          <Route path="/mentor-me-collective" element={<MentorMeCollective />} />
+          <Route path="/rhythm" element={<Rhythm />} />
+          <Route path="/design-intelligence-lab" element={<DesignIntelligenceLab />} />
+          {/* Old /case-studies/* links still work */}
+          <Route path="/case-studies/:slug" element={<CaseStudyRedirect />} />
         </Routes>
       </Layout>
     </Router>
   );
+}
+
+/** Sends an old /case-studies/:slug link to its new top-level path. */
+function CaseStudyRedirect() {
+  const { slug } = useParams();
+  return <Navigate to={`/${slug ?? ''}`} replace />;
 }

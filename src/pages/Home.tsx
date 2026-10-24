@@ -77,7 +77,7 @@ export function Home() {
           </Link>
         </div>
 
-        <Link to="/case-studies/blyss" className="pg-pj" style={{ marginTop: 40 }}>
+        <Link to="/blyss" className="pg-pj" style={{ marginTop: 40 }}>
           <Reveal from="bottom" style={{ maxWidth: 900, margin: "0 auto" }}>
             <BlyssComposition />
           </Reveal>
@@ -105,7 +105,7 @@ export function Home() {
         </Link>
 
         <div className="pg-pdiv" role="presentation" />
-        <Link to="/case-studies/rhythm" className="pg-pj pg-prow">
+        <Link to="/rhythm" className="pg-pj pg-prow">
           <Reveal>
             <p className="pg-cat" style={{ color: PROJECT_COLORS.rhythm }}>
               02 · More alignment
@@ -131,7 +131,7 @@ export function Home() {
         </Link>
 
         <div className="pg-pdiv" role="presentation" />
-        <Link to="/case-studies/crwn" className="pg-pj pg-prow pg-prow--flip">
+        <Link to="/crwn" className="pg-pj pg-prow pg-prow--flip">
           <Reveal from="left" className="pg-prow-visual">
             <CrwnComposition />
           </Reveal>
@@ -156,7 +156,7 @@ export function Home() {
         </Link>
 
         <div className="pg-pdiv" role="presentation" />
-        <Link to="/case-studies/design-intelligence-lab" className="pg-pj pg-prow">
+        <Link to="/design-intelligence-lab" className="pg-pj pg-prow">
           <Reveal>
             <p className="pg-cat" style={{ color: PROJECT_COLORS.dil }}>
               04 · More thoughtful design

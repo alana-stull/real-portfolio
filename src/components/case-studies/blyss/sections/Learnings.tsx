@@ -81,7 +81,7 @@ export function Learnings() {
           gap: 24,
         }}
       >
-        <Link to="/case-studies/rhythm" style={{ textDecoration: "none", color: "var(--bl-ink)" }}>
+        <Link to="/rhythm" style={{ textDecoration: "none", color: "var(--bl-ink)" }}>
           <Label>Next project</Label>
           <Heading size="sm" style={{ marginTop: 8 }}>
             Rhythm →

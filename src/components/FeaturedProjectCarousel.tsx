@@ -340,7 +340,7 @@ function FeaturedProjectCard({
               </a>
             ) : (
               <Link
-                to={`/case-studies/${project.id}`}
+                to={`/${project.id}`}
                 onClick={(e) => e.stopPropagation()}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-lg group"
                 style={{

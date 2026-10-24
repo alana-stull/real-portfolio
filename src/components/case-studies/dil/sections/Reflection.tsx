@@ -31,7 +31,7 @@ export function Reflection() {
       </section>
 
       <div className="dil-next">
-        <Link to="/case-studies/blyss" className="np">
+        <Link to="/blyss" className="np">
           <p className="dil-lb">Next project</p>
           <p className="dil-h3" style={{ marginTop: 10, fontSize: 28 }}>
             Blyss Social →

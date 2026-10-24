@@ -1,3 +1,4 @@
 {
+  "redirects": [{ "source": "/case-studies/:slug", "destination": "/:slug", "permanent": true }],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }

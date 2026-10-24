@@ -68,7 +68,7 @@ export function Reflection() {
       </div>
 
       <div className="bc-next">
-        <Link to="/case-studies/rhythm" className="bc-next__project">
+        <Link to="/rhythm" className="bc-next__project">
           <div className="bc-lb">Next project</div>
           <div className="bc-h" style={{ marginTop: 8, fontSize: 20, letterSpacing: "-0.01em" }}>
             Rhythm <span style={{ color: "#5BA8D3", fontWeight: 600 }}>→</span>

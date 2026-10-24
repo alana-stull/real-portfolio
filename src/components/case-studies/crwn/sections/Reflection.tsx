@@ -36,7 +36,7 @@ export function Reflection() {
       </section>
 
       <div className="crwn-next">
-        <Link to="/case-studies/design-intelligence-lab">
+        <Link to="/design-intelligence-lab">
           <Label>Next project</Label>
           <Heading as="div" size="lg" style={{ marginTop: 10 }}>
             Design Intelligence Lab →

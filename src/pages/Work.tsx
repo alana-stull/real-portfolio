@@ -34,7 +34,7 @@ const BUILT: Built[] = [
   {
     name: "Mentor Me Collective",
     description: "Brand guide, campaign assets, and event materials for a mentorship nonprofit.",
-    to: "/case-studies/mentor-me-collective",
+    to: "/mentor-me-collective",
   },
   {
     name: "Duke NSBE Website",
@@ -134,7 +134,7 @@ export function Work() {
         </div>
 
         <Reveal style={{ marginTop: 40 }}>
-          <Link to="/case-studies/blyss" className="pg-pj">
+          <Link to="/blyss" className="pg-pj">
             <div className="pg-tint pg-tint--blyss">
               <div style={{ maxWidth: 900, margin: "0 auto" }}>
                 <BlyssComposition />
@@ -154,7 +154,7 @@ export function Work() {
 
         <div className="pg-pair pg-pair--even">
           <Reveal>
-            <Link to="/case-studies/rhythm" className="pg-pj">
+            <Link to="/rhythm" className="pg-pj">
               <div className="pg-tint pg-tint--rhythm">
                 <RhythmComposition aspect="4 / 3" />
               </div>
@@ -170,7 +170,7 @@ export function Work() {
             </Link>
           </Reveal>
           <Reveal className="pg-pair__offset" delay={0.1}>
-            <Link to="/case-studies/crwn" className="pg-pj">
+            <Link to="/crwn" className="pg-pj">
               <div className="pg-tint pg-tint--crwn">
                 <CrwnComposition aspect="4 / 3" />
               </div>
@@ -187,7 +187,7 @@ export function Work() {
           </Reveal>
           {/* Left column, staggered under CRWN */}
           <Reveal className="pg-pair__under">
-            <Link to="/case-studies/design-intelligence-lab" className="pg-pj">
+            <Link to="/design-intelligence-lab" className="pg-pj">
               <div className="pg-tint pg-tint--dil">
                 <DilComposition aspect="4 / 3" />
               </div>

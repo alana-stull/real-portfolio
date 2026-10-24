@@ -105,7 +105,7 @@ export function WhatsNext() {
           gap: 24,
         }}
       >
-        <Link to="/case-studies/crwn" style={{ textDecoration: "none", color: "var(--rh-ink)" }}>
+        <Link to="/crwn" style={{ textDecoration: "none", color: "var(--rh-ink)" }}>
           <Label>Next project</Label>
           <Heading size="sm" style={{ marginTop: 10 }}>
             CRWN →

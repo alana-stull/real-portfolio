@@ -723,7 +723,7 @@ export function Sereniti() {
       <div className="border-t border-gray-200 py-16">
         <div className="max-w-6xl mx-auto px-6">
           <Link
-            to="/case-studies/pebb"
+            to="/pebb"
             className="group flex items-center justify-between hover:opacity-70 transition-opacity"
           >
             <div>
