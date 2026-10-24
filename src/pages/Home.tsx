@@ -3,7 +3,7 @@ import ClarityAssistImage from "figma:asset/33f3027060c6f4bca0459accb8f98b430d8f
 import AmazonLearnImage from "figma:asset/2a7240ae2d20598003ea0a91aa16a212bbaaf224.png";
 import profileImage from "../imports/headshot.jpg";
 import "../styles/portfolio.css";
-import { BlyssComposition, CrwnComposition, RhythmComposition } from "../components/portfolio/ProjectComposition";
+import { BlyssComposition, CrwnComposition, DilComposition, RhythmComposition } from "../components/portfolio/ProjectComposition";
 import { Reveal } from "../components/portfolio/Reveal";
 import { PROJECT_COLORS } from "../components/portfolio/projectColors";
 
@@ -26,7 +26,7 @@ const INDUSTRY = [
     href: CLARITY_URL,
     image: ClarityAssistImage,
     alt: "Clarity Assist interface",
-    eyebrow: "04 · Amazon",
+    eyebrow: "05 · Amazon",
     name: "Clarity Assist",
     description: "making complex enterprise data more accessible through conversational AI.",
   },
@@ -34,7 +34,7 @@ const INDUSTRY = [
     href: LEARN_URL,
     image: AmazonLearnImage,
     alt: "Amazon Learn assignments page",
-    eyebrow: "05 · AMAZON",
+    eyebrow: "06 · Amazon",
     name: "Learn",
     description:
       "developed UI components for a career management platform used by 3M+ users, contributing to Amazon's internal design system.",
@@ -152,6 +152,32 @@ export function Home() {
               designed and developed the platform from the ground up, spanning brand, product design, and frontend engineering.
             </p>
             <CaseLink color={PROJECT_COLORS.crwn} />
+          </Reveal>
+        </Link>
+
+        <div className="pg-pdiv" role="presentation" />
+        <Link to="/case-studies/design-intelligence-lab" className="pg-pj pg-prow">
+          <Reveal>
+            <p className="pg-cat" style={{ color: PROJECT_COLORS.dil }}>
+              04 · More thoughtful design
+            </p>
+            <p className="pg-pname" style={{ marginTop: 14, fontSize: "clamp(32px, 3.4vw, 46px)" }}>
+              Design Intelligence Lab
+            </p>
+            <p className="pg-role" style={{ marginTop: 8 }}>
+              Co-Founder + Lead Engineer
+            </p>
+            <h3 className="pg-ph1" style={{ marginTop: 24, fontSize: "clamp(22px, 2vw, 28px)" }}>
+              building at ai speed without losing design intent.
+            </h3>
+            <p className="pg-b" style={{ marginTop: 12 }}>
+              designed and developed an ai-powered platform that helps teams identify design inconsistencies and maintain quality as they
+              build.
+            </p>
+            <CaseLink color={PROJECT_COLORS.dil} />
+          </Reveal>
+          <Reveal from="right" className="pg-prow-visual">
+            <DilComposition />
           </Reveal>
         </Link>
 

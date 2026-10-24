@@ -3,4 +3,5 @@ export const PROJECT_COLORS = {
   blyss: "#375169",
   rhythm: "#8E5720",
   crwn: "#562321",
+  dil: "#1F4470",
 };

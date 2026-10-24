@@ -11,6 +11,7 @@ import { NotedByNani } from './pages/case-studies/NotedByNani';
 import { Sereniti } from './pages/case-studies/Sereniti';
 import { MentorMeCollective } from './pages/case-studies/MentorMeCollective';
 import { Rhythm } from './pages/case-studies/Rhythm';
+import { DesignIntelligenceLab } from './pages/case-studies/DesignIntelligenceLab';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/case-studies/sereniti" element={<Sereniti />} />
           <Route path="/case-studies/mentor-me-collective" element={<MentorMeCollective />} />
           <Route path="/case-studies/rhythm" element={<Rhythm />} />
+          <Route path="/case-studies/design-intelligence-lab" element={<DesignIntelligenceLab />} />
         </Routes>
       </Layout>
     </Router>

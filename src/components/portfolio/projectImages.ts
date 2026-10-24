@@ -16,6 +16,8 @@ import blyssInviteCard from "../../assets/blyss/blyss final/download-22.png";
 import blyssStatusCard from "../../assets/blyss/blyss final/download-21.png";
 import blyssPlanCard from "../../assets/blyss/blyss final/download-23.png";
 import blyssVenueCard from "../../assets/blyss/blyss final/download-12.png";
+import dilFixes from "../../assets/dil/fixes.jpg";
+import dilScoreCard from "../../assets/dil/score-card.jpg";
 import rhythmTodayDesktop from "../../assets/rhythm/Today-Desktop@1x (2).png";
 import rhythmTodayMobile from "../../assets/rhythm/1-today.png";
 import crwnExplore from "../../assets/crwn/explore-after-1.png";
@@ -45,6 +47,10 @@ export const projectImages = defineImages({
   blyssStatus: { label: "[Status tier]", src: blyssStatusCard, alt: "Social Butterfly status tier" },
   blyssVenue: { label: "[Venue card]", src: blyssVenueCard, alt: "Venue card: Code Red" },
   blyssPlanCard: { label: "[Plan card]", src: blyssPlanCard, alt: "Plan card: Sunday brunch club" },
+
+  // Design Intelligence Lab
+  dilFixes: { label: "[DIL Fixes view]", src: dilFixes, alt: "Design Intelligence Lab Fixes view" },
+  dilScore: { label: "[DIL score card]", src: dilScoreCard, alt: "Design Intelligence Lab score card: 85 design health" },
 
   // Rhythm
   rhythmDashboard: { label: "[Rhythm dashboard · web]", src: rhythmTodayDesktop, alt: "Rhythm web Today" },

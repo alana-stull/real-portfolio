@@ -163,6 +163,46 @@ export function BlyssComposition() {
   );
 }
 
+/* ---------------- Design Intelligence Lab ---------------- */
+
+/*
+ * The Fixes view in a browser window, with the score card overlapping its
+ * lower-left corner (the case study hero, in container units). The pair is
+ * centered vertically whatever the composition's aspect ratio.
+ */
+const DIL_DESKTOP_W = 74;
+const DIL_DESKTOP_H = DIL_DESKTOP_W * (1136 / 2048) + 2.6; // screenshot + title bar
+const DIL_SCORE_W = 29;
+const DIL_SCORE_H = DIL_SCORE_W * (539 / 771);
+const DIL_SCORE_DROP = 10; // how far the score card hangs below the window
+
+export function DilComposition({ aspect = "16 / 10" }: { aspect?: string }) {
+  const img = projectImages;
+  const [w, h] = aspect.split("/").map((n) => parseFloat(n));
+  const H = (100 * h) / w; // composition height in cqw
+  const groupH = DIL_DESKTOP_H + DIL_SCORE_DROP; // window, plus the score card hanging below it
+  const top = Math.max(2, (H - groupH) / 2);
+  const pct = (cqw: number) => `${(cqw / H) * 100}%`;
+  return (
+    <ProjectComposition aspect={aspect} c1="#1F4470" c2="#B9C7D8" small label="Design Intelligence Lab: the Fixes view with a design health score card">
+      <div className="pg-dil-desktop" style={{ position: "absolute", left: "21%", top: pct(top), width: `${DIL_DESKTOP_W}%` }}>
+        <div className="pg-dil-desktop__bar" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+        </div>
+        <img src={img.dilFixes.src} alt="" />
+      </div>
+      <div
+        className="pg-dil-score"
+        style={{ position: "absolute", left: "5%", top: pct(top + DIL_DESKTOP_H + DIL_SCORE_DROP - DIL_SCORE_H), width: `${DIL_SCORE_W}%` }}
+      >
+        <img src={img.dilScore.src} alt="" />
+      </div>
+    </ProjectComposition>
+  );
+}
+
 /* ---------------- Rhythm ---------------- */
 
 /*

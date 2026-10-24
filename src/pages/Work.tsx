@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import ClarityAssistImage from "figma:asset/33f3027060c6f4bca0459accb8f98b430d8f9f34.png";
 import AmazonLearnImage from "figma:asset/2a7240ae2d20598003ea0a91aa16a212bbaaf224.png";
 import "../styles/portfolio.css";
-import { BlyssComposition, CrwnComposition, RhythmComposition } from "../components/portfolio/ProjectComposition";
+import { BlyssComposition, CrwnComposition, DilComposition, RhythmComposition } from "../components/portfolio/ProjectComposition";
 import { Reveal } from "../components/portfolio/Reveal";
 import { PROJECT_COLORS } from "../components/portfolio/projectColors";
 
@@ -121,7 +121,7 @@ export function Work() {
           </h1>
         </div>
         <p className="pg-bd" style={{ flex: "1 1 320px", maxWidth: 520, paddingBottom: 8 }}>
-          From consumer products to enterprise systems, I work across strategy, design, and engineering to turn complex ideas into
+          from consumer products to enterprise systems, i work across strategy, design, and engineering to turn complex ideas into
           experiences people can actually use.
         </p>
       </section>
@@ -130,7 +130,7 @@ export function Work() {
       <section className="pg-wrap" style={{ paddingTop: 24, paddingBottom: 24 }}>
         <div className="pg-shd">
           <h2 className="pg-cat">case studies</h2>
-          <p className="pg-role">3 projects</p>
+          <p className="pg-role">4 projects</p>
         </div>
 
         <Reveal style={{ marginTop: 40 }}>
@@ -181,6 +181,23 @@ export function Work() {
                 </h3>
                 <p className="pg-b" style={{ marginTop: 10, maxWidth: 460 }}>
                   Redesigning and developing a textured-hair marketplace across brand, product, and engineering.
+                </p>
+              </div>
+            </Link>
+          </Reveal>
+          {/* Left column, staggered under CRWN */}
+          <Reveal className="pg-pair__under">
+            <Link to="/case-studies/design-intelligence-lab" className="pg-pj">
+              <div className="pg-tint pg-tint--dil">
+                <DilComposition aspect="4 / 3" />
+              </div>
+              <div className="pg-case-info">
+                <CaseMeta eyebrow="more space for thoughtful design" color={PROJECT_COLORS.dil} />
+                <h3 className="pg-pname2" style={{ marginTop: 12 }}>
+                  Design Intelligence Lab
+                </h3>
+                <p className="pg-b" style={{ marginTop: 10, maxWidth: 460 }}>
+                  Building an AI-powered platform that helps product and engineering teams maintain design consistency as they build.
                 </p>
               </div>
             </Link>
