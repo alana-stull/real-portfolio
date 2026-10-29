@@ -1,4 +1,7 @@
 {
-  "redirects": [{ "source": "/case-studies/:slug", "destination": "/:slug", "permanent": true }],
+  "redirects": [
+    { "source": "/case-studies/:slug", "destination": "/:slug", "permanent": true },
+    { "source": "/resume.pdf", "destination": "/", "permanent": false }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }

@@ -107,7 +107,7 @@ export function About() {
         <Reveal>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 16, flexWrap: "wrap" }}>
             <h2 className="pg-eyb">how i work</h2>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="pg-lk">
+            <a href="/resume-2026.pdf" target="_blank" rel="noopener noreferrer" className="pg-lk">
               view resume ↗<span className="sr-only"> (opens in a new tab)</span>
             </a>
           </div>

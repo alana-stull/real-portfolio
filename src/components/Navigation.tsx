@@ -27,7 +27,7 @@ export function Navigation() {
     { path: '/', label: 'HOME' },
     { path: '/work', label: 'WORK' },
     { path: '/about', label: 'ABOUT' },
-    { path: '/resume.pdf', label: 'RESUME', external: true },
+    { path: '/resume-2026.pdf', label: 'RESUME', external: true },
   ];
 
   return (
