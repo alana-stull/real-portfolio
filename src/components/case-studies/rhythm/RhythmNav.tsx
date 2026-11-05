@@ -40,8 +40,8 @@ function headerOffset(compact = false) {
  * comparing IntersectionObserver ratios, which favour short sections) keeps a
  * single section active in both directions and under fast scrolling.
  */
-function useActiveSection() {
-  const [activeKey, setActiveKey] = useState<string>(RHYTHM_SECTIONS[0].key);
+function useActiveSection(sections: RhythmNavSection[]) {
+  const [activeKey, setActiveKey] = useState<string>(sections[0].key);
 
   useEffect(() => {
     let frame = 0;
@@ -49,14 +49,14 @@ function useActiveSection() {
       frame = 0;
       const top = headerOffset();
       const line = top + (window.innerHeight - top) * 0.3;
-      let current = RHYTHM_SECTIONS[0].key;
-      for (const s of RHYTHM_SECTIONS) {
+      let current = sections[0].key;
+      for (const s of sections) {
         const el = document.getElementById(s.id);
         if (el && el.getBoundingClientRect().top <= line) current = s.key;
       }
       // At the very bottom the last section may never reach the line.
       if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
-        current = RHYTHM_SECTIONS[RHYTHM_SECTIONS.length - 1].key;
+        current = sections[sections.length - 1].key;
       }
       setActiveKey(current);
     };
@@ -71,7 +71,7 @@ function useActiveSection() {
       window.removeEventListener("resize", onScroll);
       if (frame) cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [sections]);
 
   return activeKey;
 }
@@ -94,14 +94,15 @@ function onSectionClick(e: MouseEvent<HTMLAnchorElement>, id: string, after?: ()
   requestAnimationFrame(() => scrollToSection(id));
 }
 
-export function RhythmDesktopNav() {
-  const activeKey = useActiveSection();
+/** `sections` defaults to the published case study; the draft passes its own list. */
+export function RhythmDesktopNav({ sections = RHYTHM_SECTIONS }: { sections?: RhythmNavSection[] }) {
+  const activeKey = useActiveSection(sections);
 
   return (
     <aside className="rhythm__aside">
       <div className="rhythm__aside-inner">
         <nav aria-label="Case study sections" style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-          {RHYTHM_SECTIONS.map((section) => (
+          {sections.map((section) => (
             <a
               key={section.key}
               href={`#${section.id}`}
@@ -121,8 +122,8 @@ export function RhythmDesktopNav() {
   );
 }
 
-export function RhythmMobileJumpBar() {
-  const activeKey = useActiveSection();
+export function RhythmMobileJumpBar({ sections = RHYTHM_SECTIONS }: { sections?: RhythmNavSection[] }) {
+  const activeKey = useActiveSection(sections);
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -130,9 +131,9 @@ export function RhythmMobileJumpBar() {
     setOpen(false);
   }, [activeKey]);
 
-  const activeIndex = RHYTHM_SECTIONS.findIndex((s) => s.key === activeKey);
-  const activeSection = RHYTHM_SECTIONS[activeIndex] ?? RHYTHM_SECTIONS[0];
-  const progress = ((activeIndex + 1) / RHYTHM_SECTIONS.length) * 100;
+  const activeIndex = sections.findIndex((s) => s.key === activeKey);
+  const activeSection = sections[activeIndex] ?? sections[0];
+  const progress = ((activeIndex + 1) / sections.length) * 100;
 
   return (
     <div className="rh-jumpbar">
@@ -144,7 +145,7 @@ export function RhythmMobileJumpBar() {
         onClick={() => setOpen((o) => !o)}
       >
         <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", color: "#6B6259" }}>
-          {String(activeIndex + 1).padStart(2, "0")} / {String(RHYTHM_SECTIONS.length).padStart(2, "0")}
+          {String(activeIndex + 1).padStart(2, "0")} / {String(sections.length).padStart(2, "0")}
         </span>
         <span style={{ fontSize: 15, fontWeight: 700, color: "var(--rh-ink)", textTransform: "uppercase", letterSpacing: "0.04em" }}>
           {activeSection.label}
@@ -159,7 +160,7 @@ export function RhythmMobileJumpBar() {
       </div>
       {open && (
         <div className="rh-jumpbar__panel" ref={panelRef}>
-          {RHYTHM_SECTIONS.map((section) => (
+          {sections.map((section) => (
             <a
               key={section.key}
               href={`#${section.id}`}

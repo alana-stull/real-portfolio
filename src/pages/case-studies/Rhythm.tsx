@@ -1,28 +1,28 @@
 import "../../styles/rhythm.css";
 import { RhythmDesktopNav, RhythmMobileJumpBar } from "../../components/case-studies/rhythm/RhythmNav";
-import { Hero } from "../../components/case-studies/rhythm/sections/Hero";
-import { Opportunity } from "../../components/case-studies/rhythm/sections/Opportunity";
-import { Model } from "../../components/case-studies/rhythm/sections/Model";
-import { Experience } from "../../components/case-studies/rhythm/sections/Experience";
-import { UnderTheHood } from "../../components/case-studies/rhythm/sections/UnderTheHood";
-import { BeyondTheScreen } from "../../components/case-studies/rhythm/sections/BeyondTheScreen";
-import { WhatsNext } from "../../components/case-studies/rhythm/sections/WhatsNext";
+import { RHYTHM_DRAFT_SECTIONS } from "../../components/case-studies/rhythm-draft/sections";
+import { Hero } from "../../components/case-studies/rhythm-draft/sections/Hero";
+import { Problem } from "../../components/case-studies/rhythm-draft/sections/Problem";
+import { Approach } from "../../components/case-studies/rhythm-draft/sections/Approach";
+import { Experience } from "../../components/case-studies/rhythm-draft/sections/Experience";
+import { System } from "../../components/case-studies/rhythm-draft/sections/System";
+import { Outcome } from "../../components/case-studies/rhythm-draft/sections/Outcome";
 
+/** The Rhythm case study (five sections), at /rhythm. The previous version lives at /rhythm-old. */
 export function Rhythm() {
   return (
     <div className="rhythm">
       <Hero />
-      <RhythmMobileJumpBar />
+      <RhythmMobileJumpBar sections={RHYTHM_DRAFT_SECTIONS} />
       <div className="rhythm__shell">
-        <RhythmDesktopNav />
+        <RhythmDesktopNav sections={RHYTHM_DRAFT_SECTIONS} />
         <main className="rhythm__main">
           <div style={{ paddingLeft: 24, paddingRight: 24, paddingTop: 32 }}>
-            <Opportunity />
-            <Model />
+            <Problem />
+            <Approach />
             <Experience />
-            <UnderTheHood />
-            <BeyondTheScreen />
-            <WhatsNext />
+            <System />
+            <Outcome />
           </div>
         </main>
       </div>
